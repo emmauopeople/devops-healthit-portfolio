@@ -72,12 +72,12 @@ export const projects = [
       deploymentRepository: "https://github.com/emmauopeople/1community_deployment_configurations"
     },
     screenshots: [
+      { title: "Architecture diagram", description: "High-level architecture of the production deployment.", src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.svg" },
       { title: "Public homepage desktop view", description: "Public landing page for service discovery and community access.", src: "/assets/images/projects/one-community-docker-compose/public-homepage-desktop.jpg" },
       { title: "Public homepage mobile view", description: "Mobile responsive view of the public platform.", src: "/assets/images/projects/one-community-docker-compose/public-homepage-mobile.jpg" },
       { title: "Admin dashboard overview", description: "Admin operational dashboard for provider and platform management.", src: "/assets/images/projects/one-community-docker-compose/admin-dashboard-overview.jpg" },
       { title: "Grafana monitoring dashboard", description: "Monitoring dashboard for container and service metrics.", src: "/assets/images/projects/one-community-docker-compose/grafana-dashboard.jpg" },
-      { title: "Docker containers running", description: "Production containers running through Docker Compose.", src: "/assets/images/projects/one-community-docker-compose/docker-containers-running.jpg" },
-      { title: "Architecture diagram", description: "High-level architecture of the production deployment.", src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.png" }
+      { title: "Docker containers running", description: "Production containers running through Docker Compose.", src: "/assets/images/projects/one-community-docker-compose/docker-containers-running.jpg" }
     ]
   },
   {
