@@ -1,16 +1,88 @@
-# React + Vite
+# DevOps Health IT Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional React portfolio built to present real-world DevOps, cloud, monitoring, and Health IT case studies.
 
-Currently, two official plugins are available:
+## Purpose
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This portfolio is structured around evidence-based project documentation. Each project is written as a case study that explains:
 
-## React Compiler
+- The real-world problem
+- The technical solution
+- Architecture and design decisions
+- Security considerations
+- Implementation details
+- Deployment steps
+- Monitoring and reliability
+- Troubleshooting stories
+- Results and lessons learned
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Current Featured Project
 
-## Expanding the ESLint configuration
+### One Community Platform - Docker Compose Production Deployment
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+A production community skills platform deployed with:
+
+- React frontend
+- Node.js and Express backend
+- PostgreSQL database
+- Docker Compose orchestration
+- NGINX reverse proxy
+- HTTPS with Certbot
+- Object storage media uploads
+- Prometheus, cAdvisor, and Grafana monitoring
+- PostgreSQL backup planning
+
+## Tech Stack
+
+- React
+- Vite
+- React Router DOM
+- Tailwind CSS v4
+- GitHub Pages ready structure
+
+## Local Development
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```
+
+## Screenshot Convention
+
+Project screenshots should be stored under:
+
+```text
+public/assets/images/projects/project-name/screenshot-name.jpg
+```
+
+Example:
+
+```text
+public/assets/images/projects/one-community-docker-compose/grafana-dashboard.jpg
+```
+
+## Resume Convention
+
+Place the resume PDF here:
+
+```text
+public/assets/documents/mbimunyui-emmanuel-resume.pdf
+```
+
+## Project Structure
+
+```text
+src/components
+src/data
+src/pages
+src/routes
+src/utils
+public/assets/images
+public/assets/documents
+```
