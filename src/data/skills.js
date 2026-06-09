@@ -1,26 +1,26 @@
 export const skillGroups = [
   {
-    title: "Infrastructure & Deployment",
-    skills: ["Linux", "Docker", "Docker Compose", "NGINX", "Certbot/HTTPS", "VPS Deployment"],
+    title: "Infrastructure Engineering",
+    skills: ["Linux", "Docker", "Docker Compose", "NGINX", "HTTPS", "VPS Deployment"],
   },
   {
-    title: "Cloud & Platform Engineering",
-    skills: ["AWS", "EKS Planning", "Terraform Planning", "GitHub Actions", "Environment Management"],
+    title: "Cloud and Platform",
+    skills: ["AWS", "Kubernetes", "EKS Planning", "Terraform Planning", "GitHub Actions", "Environment Management"],
   },
   {
-    title: "Backend & Databases",
+    title: "Backend Systems",
     skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs", "Authentication", "API Testing"],
   },
   {
-    title: "Reliability & Observability",
+    title: "Monitoring and Reliability",
     skills: ["Prometheus", "Grafana", "cAdvisor", "Application Metrics", "Backups", "Production Troubleshooting"],
   },
   {
-    title: "Frontend & Product Delivery",
-    skills: ["React", "Vite", "Tailwind CSS", "Responsive UI", "Mobile Testing", "Technical Documentation"],
+    title: "Healthcare Interoperability",
+    skills: ["FHIR", "HL7 Concepts", "EHR Integration", "Patient Data Exchange", "Clinical Data Workflows"],
   },
   {
-    title: "Healthcare Technology Direction",
-    skills: ["Health IT", "FHIR Planning", "Clinical Workflows", "Patient Data Systems", "Offline-first Design"],
+    title: "Clinical Workflow Technology",
+    skills: ["Health IT", "Clinical Informatics", "Patient Systems", "Offline-first Design", "Technical Documentation"],
   },
 ];
