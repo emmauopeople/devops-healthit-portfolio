@@ -10,19 +10,24 @@ function HomePage() {
     <>
       <Hero />
 
-      <section className="py-20">
+      <section id="about" className="py-20">
         <Container>
-          <SectionHeader
-            eyebrow="About"
-            title="A portfolio built around evidence, not only skill lists"
-            description="This site is organized to show how each project solves a real problem, what architecture was used, how it was deployed, and how it was monitored."
-          />
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-5">
-            {profile.highlights.map((highlight) => (
-              <div key={highlight} className="rounded-3xl border border-slate-800 bg-slate-900/70 p-5 text-sm leading-6 text-slate-300">
-                {highlight}
+          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <SectionHeader
+              eyebrow="About"
+              title="About me"
+              description="A concise professional summary connecting my DevOps work with Health IT, FHIR interoperability, and EHR integration."
+            />
+            <div className="rounded-3xl border border-slate-200 bg-white/90 p-8 shadow-xl shadow-slate-200/70">
+              <p className="text-lg leading-8 text-slate-700">{profile.about}</p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {profile.highlights.map((highlight) => (
+                  <div key={highlight} className="rounded-2xl border border-slate-200 bg-slate-50 p-5 text-sm font-medium leading-6 text-slate-700">
+                    {highlight}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </Container>
       </section>
