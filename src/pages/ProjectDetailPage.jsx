@@ -81,56 +81,58 @@ function ProjectDetailPage() {
   }
 
   return (
-    <section className="py-16">
-      <Container>
-        <div className="grid gap-8 lg:grid-cols-[310px_minmax(0,1fr)] lg:items-start">
-          <ProjectMenu activeSlug={project.slug} />
+    <section className="bg-slate-50">
+      <div className="grid min-h-[calc(100vh-4rem)] w-full lg:grid-cols-[320px_minmax(0,1fr)]">
+        <ProjectMenu activeSlug={project.slug} />
 
-          <article>
-            <header className="rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10">
-              <p className="text-sm font-black uppercase tracking-[0.3em] text-sky-700">{project.category}</p>
-              <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">{project.name}</h1>
-              <p className="mt-5 max-w-4xl text-base leading-8 text-slate-700 sm:text-lg">{project.summary}</p>
+        <main className="min-w-0 py-10 lg:py-12">
+          <Container>
+            <article>
+              <header className="rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10">
+                <p className="text-sm font-black uppercase tracking-[0.3em] text-sky-700">{project.category}</p>
+                <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">{project.name}</h1>
+                <p className="mt-5 max-w-4xl text-base leading-8 text-slate-700 sm:text-lg">{project.summary}</p>
 
-              <div className="mt-7 grid gap-4 lg:grid-cols-[0.35fr_0.65fr]">
-                <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Status</p>
-                  <p className="mt-2 text-sm font-bold text-slate-900">{project.status}</p>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Stack</p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {project.stack?.map((item) => (
-                      <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                        {item}
-                      </span>
-                    ))}
+                <div className="mt-7 grid gap-4 lg:grid-cols-[0.35fr_0.65fr]">
+                  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Status</p>
+                    <p className="mt-2 text-sm font-bold text-slate-900">{project.status}</p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
+                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Stack</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.stack?.map((item) => (
+                        <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
+              </header>
+
+              <div className="mt-8 grid gap-6">
+                {sectionOrder.map((section) => (
+                  <CaseStudySection key={section.key} project={project} section={section} />
+                ))}
               </div>
-            </header>
 
-            <div className="mt-8 grid gap-6">
-              {sectionOrder.map((section) => (
-                <CaseStudySection key={section.key} project={project} section={section} />
-              ))}
-            </div>
-
-            {project.links && (
-              <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
-                <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
-                <div className="mt-5 flex flex-wrap gap-3">
-                  {Object.entries(project.links).map(([label, href]) => (
-                    <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-sky-300 hover:text-sky-700">
-                      {label}
-                    </a>
-                  ))}
-                </div>
-              </section>
-            )}
-          </article>
-        </div>
-      </Container>
+              {project.links && (
+                <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
+                  <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    {Object.entries(project.links).map(([label, href]) => (
+                      <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-sky-300 hover:text-sky-700">
+                        {label}
+                      </a>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </article>
+          </Container>
+        </main>
+      </div>
     </section>
   );
 }
