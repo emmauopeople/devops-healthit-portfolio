@@ -8,12 +8,12 @@ export const skillGroups = [
     skills: ["AWS", "Kubernetes", "EKS Planning", "Terraform Planning", "GitHub Actions", "Environment Management"],
   },
   {
-    title: "Backend Systems",
-    skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs", "Authentication", "API Testing"],
+    title: "Site Reliability Engineering",
+    skills: ["Observability", "Incident Response", "Uptime", "Monitoring", "Alerting", "Production Operations"],
   },
   {
-    title: "Monitoring and Reliability",
-    skills: ["Prometheus", "Grafana", "cAdvisor", "Application Metrics", "Backups", "Production Troubleshooting"],
+    title: "Backend Systems",
+    skills: ["Node.js", "Express.js", "PostgreSQL", "REST APIs", "Authentication", "API Testing"],
   },
   {
     title: "Healthcare Interoperability",
