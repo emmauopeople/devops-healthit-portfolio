@@ -30,6 +30,68 @@ img {
   max-width: 100%;
 }
 
+.hire-me-wave {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hire-me-wave::before {
+  content: "";
+  position: absolute;
+  inset: -55% -35%;
+  z-index: -1;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    transparent 35%,
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.5) 55%,
+    transparent 65%,
+    transparent 100%
+  );
+  transform: translateX(-75%) rotate(8deg);
+  animation: hireMeWave 2.8s ease-in-out infinite;
+}
+
+.hire-me-wave::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.35);
+  animation: hireMePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes hireMeWave {
+  0%,
+  35% {
+    transform: translateX(-85%) rotate(8deg);
+  }
+  70%,
+  100% {
+    transform: translateX(85%) rotate(8deg);
+  }
+}
+
+@keyframes hireMePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(2, 132, 199, 0.35);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(2, 132, 199, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hire-me-wave::before,
+  .hire-me-wave::after {
+    animation: none;
+  }
+}
+
 ::selection {
   background: rgba(14, 165, 233, 0.22);
   color: #0f172a;
