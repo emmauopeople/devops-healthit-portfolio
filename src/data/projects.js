@@ -69,16 +69,22 @@ export const projects = [
     links: {
       repository: "https://github.com/emmauopeople/1community_app",
       adminRepository: "https://github.com/emmauopeople/one-community-admin",
-      deploymentRepository: "https://github.com/emmauopeople/1community_deployment_configurations"
+      deploymentRepository: "https://github.com/emmauopeople/1community_deployment_configurations",
+      publicSite: "https://www.cameroonskills.org",
+      adminPortal: "https://admin.cameroonskills.org"
     },
-    screenshots: [
-      { title: "Architecture diagram", description: "High-level architecture of the production deployment.", src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.svg" },
-      { title: "Public homepage desktop view", description: "Public landing page for service discovery and community access.", src: "/assets/images/projects/one-community-docker-compose/public-homepage-desktop.jpg" },
-      { title: "Public homepage mobile view", description: "Mobile responsive view of the public platform.", src: "/assets/images/projects/one-community-docker-compose/public-homepage-mobile.jpg" },
-      { title: "Admin dashboard overview", description: "Admin operational dashboard for provider and platform management.", src: "/assets/images/projects/one-community-docker-compose/admin-dashboard-overview.jpg" },
-      { title: "Grafana monitoring dashboard", description: "Monitoring dashboard for container and service metrics.", src: "/assets/images/projects/one-community-docker-compose/grafana-dashboard.jpg" },
-      { title: "Docker containers running", description: "Production containers running through Docker Compose.", src: "/assets/images/projects/one-community-docker-compose/docker-containers-running.jpg" }
-    ]
+    sectionImages: {
+      architecture: {
+        title: "Production Architecture Diagram",
+        description: "Architecture diagram for frontend, backend, database, object storage, monitoring, backups, and reverse proxy flow.",
+        src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.svg"
+      },
+      monitoring: {
+        title: "Grafana Monitoring Dashboard",
+        description: "Monitoring evidence can be placed here after the Grafana dashboard screenshot is added.",
+        src: "/assets/images/projects/one-community-docker-compose/grafana-dashboard.jpg"
+      }
+    }
   },
   {
     slug: "one-community-kubernetes",
@@ -89,7 +95,40 @@ export const projects = [
     timeframe: "Planned",
     stack: ["Kubernetes", "Amazon EKS", "Helm", "Ingress", "Terraform", "GitHub Actions"],
     focus: ["Container orchestration", "Scalability", "Cloud migration", "Infrastructure as Code"],
-    summary: "Migration plan to move the production One Community deployment from Docker Compose to a full Kubernetes environment on Amazon EKS."
+    summary: "Migration plan to move the production One Community deployment from Docker Compose to a full Kubernetes environment on Amazon EKS.",
+    problem: "The current Docker Compose production deployment works for a small platform, but future growth requires stronger orchestration, scalability, rolling deployments, service discovery, and cloud-native operational patterns.",
+    solution: "The planned solution is to migrate the platform to Kubernetes on Amazon EKS using Terraform for infrastructure provisioning, Helm for packaging, ingress for external routing, and GitHub Actions for CI/CD automation.",
+    architecture: [
+      "Amazon EKS will run public frontend, backend API, admin services, and supporting workloads.",
+      "Ingress will route HTTPS traffic to the correct Kubernetes services.",
+      "Managed PostgreSQL can be used for stronger database reliability.",
+      "Object storage will continue to support media assets and backup storage.",
+      "Prometheus and Grafana will provide cluster and application observability."
+    ],
+    security: [
+      "Kubernetes secrets or cloud secret management will store sensitive configuration.",
+      "Network policies can restrict service-to-service traffic.",
+      "Ingress TLS will protect browser traffic.",
+      "RBAC will limit administrative access inside the cluster."
+    ],
+    implementation: [
+      "Create Kubernetes manifests or Helm charts for frontend, backend, admin, and monitoring components.",
+      "Use Terraform modules for VPC, EKS, node groups, IAM, and related cloud resources.",
+      "Build CI/CD workflows to deploy images safely to the cluster."
+    ],
+    deployment: [
+      "Provision AWS infrastructure with Terraform.",
+      "Deploy workloads to EKS using Helm or Kubernetes manifests.",
+      "Configure ingress, DNS, TLS, monitoring, and rollout validation."
+    ],
+    monitoring: [
+      "Prometheus will collect pod, node, and application metrics.",
+      "Grafana dashboards will show service health and capacity trends.",
+      "Alerting can notify on downtime, high resource use, or failed deployments."
+    ],
+    troubleshooting: "This case study will document migration issues such as image pull errors, ingress routing, TLS problems, database connectivity, pod scheduling, and configuration drift.",
+    results: ["Planned project. Results will be added after the Kubernetes migration is implemented."],
+    lessons: ["Kubernetes should be introduced after the production workflow is understood and monitoring is already in place."]
   },
   {
     slug: "health-screening-app",
@@ -100,7 +139,31 @@ export const projects = [
     timeframe: "Planned",
     stack: ["React", "Node.js", "PostgreSQL", "FHIR", "Offline-first sync", "Backend design"],
     focus: ["Healthcare workflows", "Patient data", "FHIR mapping", "Offline-first architecture"],
-    summary: "A planned healthcare project focused on offline-first patient data capture, PostgreSQL synchronization, FHIR mapping, and later AI-assisted clinical querying."
+    summary: "A planned healthcare project focused on offline-first patient data capture, PostgreSQL synchronization, FHIR mapping, and later AI-assisted clinical querying.",
+    problem: "Some healthcare environments need patient data collection tools that can work with unreliable internet access while still supporting structured data exchange and future interoperability.",
+    solution: "The planned solution is an offline-first health screening application that syncs data to a backend, maps records to FHIR-compatible structures, and exposes secure APIs for clinical review.",
+    architecture: [
+      "Offline-capable client collects screening and lifestyle data.",
+      "A backend API receives synchronized records and stores workflow data in PostgreSQL.",
+      "A mapping layer converts selected records into FHIR-compatible resources.",
+      "A FHIR server stores standardized clinical data for interoperability."
+    ],
+    security: [
+      "Authentication and authorization will restrict access to patient data.",
+      "Sensitive data will require encrypted transport and controlled storage.",
+      "Audit logs will support clinical accountability."
+    ],
+    implementation: [
+      "Build patient data collection workflows.",
+      "Implement offline storage and synchronization logic.",
+      "Create PostgreSQL-to-FHIR mapping rules.",
+      "Expose secure APIs for doctor-facing access."
+    ],
+    deployment: ["Deploy backend API, database, and FHIR server in a controlled environment after MVP validation."],
+    monitoring: ["Monitor API health, sync failures, database behavior, and FHIR mapping errors."],
+    troubleshooting: "Expected troubleshooting areas include sync conflicts, incomplete patient records, FHIR validation errors, and unstable network behavior.",
+    results: ["Planned project. Results will be added after MVP implementation."],
+    lessons: ["Healthcare data platforms must prioritize workflow accuracy, privacy, reliability, and interoperability from the beginning."]
   },
   {
     slug: "serverless-deployment",
@@ -111,7 +174,22 @@ export const projects = [
     timeframe: "Planned",
     stack: ["AWS Lambda", "Gateway", "S3", "CloudFront", "DynamoDB", "IAM"],
     focus: ["Serverless architecture", "Cost optimization", "Cloud security", "Managed services"],
-    summary: "A future project to demonstrate event-driven and serverless deployment patterns using AWS managed services."
+    summary: "A future project to demonstrate event-driven and serverless deployment patterns using AWS managed services.",
+    problem: "Some workloads do not need always-running servers, but they still require secure APIs, low operational overhead, and cost-aware scaling.",
+    solution: "The planned solution is a serverless architecture using managed AWS services for compute, storage, routing, identity, and delivery.",
+    architecture: [
+      "CloudFront and S3 can serve static frontend assets.",
+      "API Gateway can route API requests to Lambda functions.",
+      "DynamoDB can store serverless application data.",
+      "IAM controls service permissions."
+    ],
+    security: ["Use least-privilege IAM policies, HTTPS, managed secrets, and strict API access controls."],
+    implementation: ["Create infrastructure as code, Lambda handlers, API routes, storage policies, and CI/CD deployment workflows."],
+    deployment: ["Deploy managed services through Terraform or AWS SAM and validate with endpoint tests."],
+    monitoring: ["Use CloudWatch logs, metrics, alarms, and tracing to observe serverless behavior."],
+    troubleshooting: "Expected troubleshooting areas include IAM permission errors, cold starts, API Gateway mapping issues, and CloudWatch log analysis.",
+    results: ["Planned project. Results will be added after implementation."],
+    lessons: ["Serverless architecture reduces server management but still requires strong observability, security, and deployment discipline."]
   }
 ];
 
