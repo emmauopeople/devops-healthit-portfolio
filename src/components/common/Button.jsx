@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
 const variants = {
-  primary: "bg-emerald-400 text-slate-950 hover:bg-emerald-300 shadow-lg shadow-emerald-950/30",
-  secondary: "border border-slate-700 bg-slate-900/80 text-slate-100 hover:border-emerald-400/70 hover:text-emerald-200",
-  ghost: "text-slate-300 hover:text-white hover:bg-slate-800/80",
+  primary: "bg-sky-700 text-white hover:bg-sky-800 shadow-lg shadow-sky-200/70",
+  secondary: "border border-slate-300 bg-white text-slate-800 hover:border-sky-500 hover:text-sky-700",
+  ghost: "text-slate-700 hover:text-sky-700 hover:bg-sky-50",
 };
 
 function Button({ children, to, href, variant = "primary", className = "" }) {
