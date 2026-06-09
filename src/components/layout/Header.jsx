@@ -30,7 +30,7 @@ function Header() {
           ))}
         </nav>
 
-        <Button to="/resume" variant="primary" className="shrink-0 px-5 py-2">
+        <Button to="/resume" variant="primary" className="hire-me-wave shrink-0 px-5 py-2">
           Hire Me
         </Button>
       </div>
