@@ -15,7 +15,11 @@ const quickLinks = [
   { label: "Projects", href: "/projects", internal: true },
   { label: "Resume", href: "/resume", internal: true },
   { label: "One Community", href: "https://www.cameroonskills.org" },
-  { label: "One Community Admin", href: "https://admin.cameroonskills.org" },
+  {
+    label: "One Community Admin",
+    href: "https://admin.cameroonskills.org",
+    note: "Contact me to get login credentials.",
+  },
   { label: "GitHub", href: "https://github.com/emmauopeople" },
 ];
 
@@ -73,11 +77,13 @@ function HomePage() {
                 {quickLinks.map((link) =>
                   link.internal ? (
                     <a key={link.label} href={link.href} className="rounded-2xl border border-sky-100 bg-white px-4 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:border-sky-300 hover:text-sky-700">
-                      {link.label}
+                      <span>{link.label}</span>
+                      {link.note && <span className="mt-1 block text-xs font-semibold text-slate-500">{link.note}</span>}
                     </a>
                   ) : (
                     <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="rounded-2xl border border-sky-100 bg-white px-4 py-3 text-sm font-bold text-slate-800 shadow-sm transition hover:border-sky-300 hover:text-sky-700">
-                      {link.label}
+                      <span>{link.label}</span>
+                      {link.note && <span className="mt-1 block text-xs font-semibold text-slate-500">{link.note}</span>}
                     </a>
                   )
                 )}
