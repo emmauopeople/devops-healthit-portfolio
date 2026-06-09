@@ -11,19 +11,19 @@ function HomePage() {
 
       <section id="about" className="py-20">
         <Container>
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr] lg:items-stretch">
-            <div className="rounded-[2rem] border border-sky-100 bg-sky-50/80 p-8 shadow-xl shadow-sky-100/70 sm:p-10">
+          <div className="grid gap-6 lg:grid-cols-[1fr_1.05fr] lg:items-stretch">
+            <div className="rounded-[2rem] border border-sky-100 bg-sky-50/80 p-8 shadow-xl shadow-sky-100/70 sm:p-10 lg:-ml-4">
               <p className="text-sm font-black uppercase tracking-[0.35em] text-sky-700">About</p>
               <p className="mt-6 text-lg leading-8 text-slate-700 sm:text-xl">
                 {profile.about}
               </p>
             </div>
 
-            <aside className="rounded-[2rem] border border-emerald-100 bg-emerald-50/80 p-8 shadow-xl shadow-emerald-100/70 sm:p-10">
-              <p className="text-sm font-black uppercase tracking-[0.3em] text-emerald-700">Target roles</p>
-              <div className="mt-6 grid gap-3">
+            <aside className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10 lg:-mr-4">
+              <p className="text-sm font-black uppercase tracking-[0.3em] text-slate-700">Target roles</p>
+              <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {profile.targetRoles.map((role) => (
-                  <div key={role} className="rounded-2xl border border-emerald-100 bg-white/90 px-4 py-3 text-sm font-bold text-slate-800 shadow-sm">
+                  <div key={role} className="rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-800 shadow-sm">
                     {role}
                   </div>
                 ))}
