@@ -5,7 +5,11 @@ export const skillGroups = [
   },
   {
     title: "Cloud and Platform",
-    skills: ["AWS", "Kubernetes", "EKS Planning", "Terraform Planning", "GitHub Actions", "Environment Management"],
+    skills: ["AWS", "Kubernetes", "EKS Planning", "Terraform Planning", "Environment Management"],
+  },
+  {
+    title: "Automation and Scripting",
+    skills: ["Bash Scripting", "Python Scripting", "Ansible", "GitHub Actions", "CI/CD", "Infrastructure Automation"],
   },
   {
     title: "Site Reliability Engineering",
@@ -18,9 +22,5 @@ export const skillGroups = [
   {
     title: "Healthcare Interoperability",
     skills: ["FHIR", "HL7 Concepts", "EHR Integration", "Patient Data Exchange", "Clinical Data Workflows"],
-  },
-  {
-    title: "Clinical Workflow Technology",
-    skills: ["Health IT", "Clinical Informatics", "Patient Systems", "Offline-first Design", "Technical Documentation"],
   },
 ];
