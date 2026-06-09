@@ -6,6 +6,13 @@ function SkillsSummary() {
   return (
     <section id="skills" className="py-16">
       <Container>
+        <div className="mb-10 flex items-center gap-5">
+          <h2 className="whitespace-nowrap text-2xl font-black uppercase tracking-[0.25em] text-slate-950 sm:text-3xl">
+            Technical Skills
+          </h2>
+          <div className="h-px flex-1 bg-slate-200" />
+        </div>
+
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group) => (
             <Card key={group.title} className="transition hover:-translate-y-1 hover:border-sky-200 hover:shadow-sky-100">
@@ -20,6 +27,8 @@ function SkillsSummary() {
             </Card>
           ))}
         </div>
+
+        <div className="mt-12 h-px w-full bg-slate-200" />
       </Container>
     </section>
   );
