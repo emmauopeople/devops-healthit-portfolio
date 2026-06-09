@@ -11,22 +11,19 @@ const navItems = [
 
 function Header() {
   const linkClass = ({ isActive }) =>
-    `rounded-full px-3 py-2 text-sm font-semibold transition ${
-      isActive ? "bg-sky-50 text-sky-700" : "text-slate-700 hover:bg-slate-100 hover:text-sky-700"
+    `px-3 py-2 text-sm font-semibold transition ${
+      isActive ? "text-sky-700" : "text-slate-700 hover:text-sky-700"
     }`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
-      <Container className="flex min-h-20 items-center justify-between gap-4 py-3">
+    <header className="sticky top-0 z-50 border-b border-slate-200 bg-slate-100">
+      <Container className="flex h-16 items-center justify-between gap-4">
         <NavLink to="/" className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sky-700 text-lg font-black text-white">ME</div>
-          <div>
-            <p className="text-sm font-black text-slate-950">Mbimunyui Emmanuel, MSIT</p>
-            <p className="text-xs text-slate-500">DevOps | Health IT | FHIR | EHR Integration</p>
-          </div>
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-700 text-sm font-black text-white">ME</div>
+          <span className="text-base font-black text-slate-950">Mbimunyui Emmanuel</span>
         </NavLink>
 
-        <nav className="hidden items-center gap-2 lg:flex">
+        <nav className="hidden items-center gap-2 md:flex">
           {navItems.map((item) => (
             <NavLink key={item.label} to={item.to} className={linkClass}>
               {item.label}
@@ -34,16 +31,9 @@ function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Button to="/resume" variant="secondary">
-            Hire Me
-          </Button>
-        </div>
-
-        <nav className="flex items-center gap-1 lg:hidden">
-          <NavLink to="/projects" className={linkClass}>Projects</NavLink>
-          <NavLink to="/resume" className={linkClass}>Resume</NavLink>
-        </nav>
+        <Button to="/resume" variant="primary" className="shrink-0 px-4 py-2">
+          Hire Me
+        </Button>
       </Container>
     </header>
   );
