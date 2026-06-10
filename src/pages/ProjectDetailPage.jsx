@@ -63,11 +63,15 @@ function LinkedText({ text }) {
   return output;
 }
 
-function ProjectImage({ image, fallbackTitle }) {
+function ProjectImage({ image, fallbackTitle, compact = false }) {
   if (!image?.src) return null;
 
+  const figureClass = compact
+    ? "mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50"
+    : "mx-auto mt-6 max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 sm:max-w-[70%]";
+
   return (
-    <figure className="mx-auto mt-6 max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 sm:max-w-[70%]">
+    <figure className={figureClass}>
       <img src={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`} alt={image.title || fallbackTitle} className="w-full object-contain" />
       <figcaption className="border-t border-slate-200 bg-white px-5 py-4">
         <p className="text-sm font-black text-slate-900">{image.title || fallbackTitle}</p>
@@ -82,7 +86,17 @@ function SectionImages({ images, fallbackTitle }) {
 
   if (!imageList.length) return null;
 
-  return imageList.map((image) => <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} />);
+  if (imageList.length > 1) {
+    return (
+      <div className="mt-6 grid gap-5 lg:grid-cols-2">
+        {imageList.map((image) => (
+          <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} compact />
+        ))}
+      </div>
+    );
+  }
+
+  return <ProjectImage image={imageList[0]} fallbackTitle={fallbackTitle} />;
 }
 
 function ArchitectureStack({ project, sectionKey }) {
