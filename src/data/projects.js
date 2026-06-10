@@ -73,7 +73,7 @@ export const projects = [
       "Custom admin login metrics track successful and failed login events.",
       "Backup automation supports PostgreSQL disaster-recovery planning using [backup script](https://github.com/emmauopeople/scripts/blob/main/backup_pg.sh) and [restore script](https://github.com/emmauopeople/scripts/blob/main/restore_pg.sh)."
     ],
-    troubleshooting: "A key production issue involved mobile image uploads intermittently failing while desktop uploads worked. The investigation covered browser policy, storage rules, secure browser context, mobile file size, MIME type normalization, NGINX logs, and device-specific behavior.",
+    troubleshooting: "A key production issue involved mobile image uploads intermittently failing while desktop uploads worked. The investigation covered browser policy, storage rules, secure browser context, mobile file size, MIME type normalization, NGINX logs, and device-specific behavior. The main finding was instability in mobile browser-based image upload behavior, especially when providers attempted to upload and manage listing images directly from mobile browsers. The solution was to create a dedicated provider support mobile app for creating and managing listings, which provided a more reliable upload workflow and resolved the mobile image upload problem.",
     results: [
       "Production frontend and backend are running behind HTTPS.",
       "PostgreSQL persists application data for provider and public workflows.",
