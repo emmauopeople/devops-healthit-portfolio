@@ -77,6 +77,26 @@ export const projects = [
     results: [
       "Production frontend and backend are running behind HTTPS.",
       "PostgreSQL persists application data for provider and public workflows.",
+      {
+        text: "The public platform and provider support workflow were validated across desktop and mobile interfaces.",
+        images: [
+          {
+            title: "One Community desktop view",
+            description: "Desktop view of the One Community public platform.",
+            src: "/assets/images/projects/one-community-docker-compose/one-community-desktop.png"
+          },
+          {
+            title: "Provider mobile app",
+            description: "Provider support mobile app for creating and managing listings.",
+            src: "/assets/images/projects/one-community-docker-compose/provider-mobile.jpeg"
+          },
+          {
+            title: "Public mobile view",
+            description: "Public mobile view for discovering local skills and services.",
+            src: "/assets/images/projects/one-community-docker-compose/public-mobile.jpg"
+          }
+        ]
+      },
       "Admin dashboard supports operational review and workflow management.",
       "Monitoring stack provides visibility into containers and service health.",
       "Daily database backup strategy is prepared for recovery planning.",
