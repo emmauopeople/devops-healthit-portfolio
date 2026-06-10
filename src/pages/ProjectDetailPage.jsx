@@ -30,6 +30,23 @@ function ProjectImage({ image, fallbackTitle }) {
   );
 }
 
+function ArchitectureStack({ project, sectionKey }) {
+  if (sectionKey !== "architecture" || !project.stack?.length) return null;
+
+  return (
+    <div className="mt-6 rounded-3xl border border-sky-100 bg-sky-50/70 p-5">
+      <p className="text-xs font-black uppercase tracking-[0.25em] text-sky-700">Technology Stack</p>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {project.stack.map((item) => (
+          <span key={item} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
+            {item}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function CaseStudySection({ project, section }) {
   const content = project[section.key];
   const image = project.sectionImages?.[section.key];
@@ -56,6 +73,7 @@ function CaseStudySection({ project, section }) {
         </ul>
       )}
 
+      <ArchitectureStack project={project} sectionKey={section.key} />
       <ProjectImage image={image} fallbackTitle={section.imageTitle || section.title} />
     </section>
   );
@@ -80,6 +98,12 @@ function ProjectDetailPage() {
     );
   }
 
+  const isOneCommunity = project.slug === "one-community-docker-compose";
+  const heroTitle = isOneCommunity ? "One Community" : project.name;
+  const heroSubtitle = isOneCommunity ? "Skill visibility and data platform." : project.summary;
+  const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
+  const liveLink = isOneCommunity ? project.links?.publicSite : null;
+
   return (
     <section className="bg-slate-50">
       <div className="grid min-h-[calc(100vh-4rem)] w-full lg:grid-cols-[320px_minmax(0,1fr)]">
@@ -88,27 +112,21 @@ function ProjectDetailPage() {
         <main className="min-w-0 py-10 lg:py-12">
           <Container>
             <article>
-              <header className="rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10">
-                <p className="text-sm font-black uppercase tracking-[0.3em] text-sky-700">{project.category}</p>
-                <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">{project.name}</h1>
-                <p className="mt-5 max-w-4xl text-base leading-8 text-slate-700 sm:text-lg">{project.summary}</p>
+              <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
+                <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">{heroTitle}</h1>
+                <p className="mt-4 max-w-4xl text-xl font-bold leading-8 text-sky-800 sm:text-2xl">{heroSubtitle}</p>
+                <p className="mt-3 max-w-4xl text-base font-semibold leading-7 text-slate-700 sm:text-lg">{heroDeployment}</p>
 
-                <div className="mt-7 grid gap-4 lg:grid-cols-[0.35fr_0.65fr]">
-                  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Status</p>
-                    <p className="mt-2 text-sm font-bold text-slate-900">{project.status}</p>
-                  </div>
-                  <div className="rounded-2xl border border-slate-200 bg-white px-5 py-4">
-                    <p className="text-xs font-black uppercase tracking-[0.2em] text-slate-500">Stack</p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {project.stack?.map((item) => (
-                        <span key={item} className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold text-slate-700">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                {liveLink && (
+                  <a
+                    href={liveLink}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="absolute bottom-8 right-8 rounded-xl bg-sky-700 px-5 py-3 text-sm font-black text-white shadow-lg shadow-sky-200 transition hover:bg-sky-800"
+                  >
+                    Click: One Community Live!
+                  </a>
+                )}
               </header>
 
               <div className="mt-8 grid gap-6">
