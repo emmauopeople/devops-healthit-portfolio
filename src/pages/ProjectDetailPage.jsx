@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import Container from "../components/common/Container";
 import ProjectMenu from "../components/projects/ProjectMenu";
@@ -64,6 +65,8 @@ function LinkedText({ text }) {
 }
 
 function ProjectImage({ image, fallbackTitle, compact = false }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
   if (!image?.src) return null;
 
   const figureClass = compact
@@ -72,7 +75,17 @@ function ProjectImage({ image, fallbackTitle, compact = false }) {
 
   return (
     <figure className={figureClass}>
-      <img src={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`} alt={image.title || fallbackTitle} className="w-full object-contain" />
+      <div className="bg-slate-100">
+        <img
+          src={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`}
+          alt={image.title || fallbackTitle}
+          loading={image.priority ? "eager" : "lazy"}
+          decoding={image.priority ? "sync" : "async"}
+          fetchPriority={image.priority ? "high" : "auto"}
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full object-contain transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+        />
+      </div>
       <figcaption className="border-t border-slate-200 bg-white px-5 py-4">
         <p className="text-sm font-black text-slate-900">{image.title || fallbackTitle}</p>
         {image.description && <p className="mt-1 text-sm leading-6 text-slate-600">{image.description}</p>}
