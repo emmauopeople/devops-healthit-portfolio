@@ -50,7 +50,14 @@ export const projects = [
           src: "/assets/images/projects/one-community-docker-compose/docker-ps.png"
         }
       },
-      "Validated production endpoints using browser testing, curl checks, and logs."
+      {
+        text: "Validated production endpoints using browser testing, curl checks, and logs.",
+        images: {
+          title: "Backend API health check",
+          description: "curl https://api.cameroonskills.org",
+          src: "/assets/images/projects/one-community-docker-compose/health-check.png"
+        }
+      }
     ],
     monitoring: [
       "Prometheus collects application and container metrics.",
