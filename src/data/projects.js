@@ -52,11 +52,18 @@ export const projects = [
       },
       {
         text: "Validated production endpoints using browser testing, curl checks, and logs.",
-        images: {
-          title: "Backend API health check",
-          description: "curl https://api.cameroonskills.org",
-          src: "/assets/images/projects/one-community-docker-compose/health-check.png"
-        }
+        images: [
+          {
+            title: "Backend API health check",
+            description: "curl https://api.cameroonskills.org",
+            src: "/assets/images/projects/one-community-docker-compose/health-check.png"
+          },
+          {
+            title: "Backend CPU logs",
+            description: "curl https://api.cameroonskills.org/metrics",
+            src: "/assets/images/projects/one-community-docker-compose/backend-cpu-logs.png"
+          }
+        ]
       }
     ],
     monitoring: [
