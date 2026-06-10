@@ -16,6 +16,20 @@ const sectionOrder = [
   { key: "lessons", title: "Lessons Learned", type: "list" },
 ];
 
+function LinkedText({ text }) {
+  const parts = String(text).split(/(https?:\/\/[^\s)]+)/g);
+
+  return parts.map((part, index) =>
+    part.startsWith("http") ? (
+      <a key={`${part}-${index}`} href={part} target="_blank" rel="noreferrer" className="font-bold text-sky-700 underline underline-offset-4 hover:text-sky-900">
+        {part}
+      </a>
+    ) : (
+      part
+    )
+  );
+}
+
 function ProjectImage({ image, fallbackTitle }) {
   if (!image?.src) return null;
 
@@ -68,14 +82,14 @@ function CaseStudySection({ project, section }) {
         <div className="h-px flex-1 bg-slate-200" />
       </div>
 
-      {section.type === "text" && content && <p className="mt-5 text-base leading-8 text-slate-700">{content}</p>}
+      {section.type === "text" && content && <p className="mt-5 text-base leading-8 text-slate-700"><LinkedText text={content} /></p>}
 
       {section.type === "list" && Array.isArray(content) && (
         <ul className="mt-5 grid gap-3">
           {content.map((item) => (
             <li key={item} className="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
               <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-700" />
-              <span>{item}</span>
+              <span><LinkedText text={item} /></span>
             </li>
           ))}
         </ul>
