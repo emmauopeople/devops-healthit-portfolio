@@ -30,6 +30,14 @@ function ProjectImage({ image, fallbackTitle }) {
   );
 }
 
+function SectionImages({ images, fallbackTitle }) {
+  const imageList = Array.isArray(images) ? images : images ? [images] : [];
+
+  if (!imageList.length) return null;
+
+  return imageList.map((image) => <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} />);
+}
+
 function ArchitectureStack({ project, sectionKey }) {
   if (sectionKey !== "architecture" || !project.stack?.length) return null;
 
@@ -49,9 +57,9 @@ function ArchitectureStack({ project, sectionKey }) {
 
 function CaseStudySection({ project, section }) {
   const content = project[section.key];
-  const image = project.sectionImages?.[section.key];
+  const images = project.sectionImages?.[section.key];
 
-  if (!content && !image) return null;
+  if (!content && !images) return null;
 
   return (
     <section id={section.key} className="scroll-mt-28 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/70 sm:p-9">
@@ -74,7 +82,7 @@ function CaseStudySection({ project, section }) {
       )}
 
       <ArchitectureStack project={project} sectionKey={section.key} />
-      <ProjectImage image={image} fallbackTitle={section.imageTitle || section.title} />
+      <SectionImages images={images} fallbackTitle={section.imageTitle || section.title} />
     </section>
   );
 }
