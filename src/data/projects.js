@@ -83,17 +83,20 @@ export const projects = [
           {
             title: "One Community desktop view",
             description: "Desktop view of the One Community public platform.",
-            src: "/assets/images/projects/one-community-docker-compose/one-community-desktop.png"
+            src: "/assets/images/projects/one-community-docker-compose/one-community-desktop.png",
+            layout: "full"
           },
           {
             title: "Provider mobile app",
             description: "Provider support mobile app for creating and managing listings.",
-            src: "/assets/images/projects/one-community-docker-compose/provider-mobile.jpeg"
+            src: "/assets/images/projects/one-community-docker-compose/provider-mobile.jpeg",
+            layout: "phone"
           },
           {
             title: "Public mobile view",
             description: "Public mobile view for discovering local skills and services.",
-            src: "/assets/images/projects/one-community-docker-compose/public-mobile.jpg"
+            src: "/assets/images/projects/one-community-docker-compose/public-mobile.jpg",
+            layout: "phone"
           }
         ]
       },
