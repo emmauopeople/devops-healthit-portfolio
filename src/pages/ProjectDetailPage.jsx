@@ -16,7 +16,7 @@ const sectionOrder = [
   { key: "lessons", title: "Lessons Learned", type: "list" },
 ];
 
-const linkClass = "font-bold text-sky-700 underline underline-offset-4 hover:text-sky-900";
+const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
 
 function renderPlainTextWithUrls(text, keyPrefix) {
   return String(text)
