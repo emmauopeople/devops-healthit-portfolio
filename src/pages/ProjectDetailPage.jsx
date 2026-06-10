@@ -119,12 +119,20 @@ function CaseStudySection({ project, section }) {
 
       {section.type === "list" && Array.isArray(content) && (
         <ul className="mt-5 grid gap-3">
-          {content.map((item) => (
-            <li key={item} className="flex gap-3 rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
-              <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-700" />
-              <span><LinkedText text={item} /></span>
-            </li>
-          ))}
+          {content.map((item) => {
+            const itemText = typeof item === "string" ? item : item.text;
+            const itemImages = typeof item === "string" ? null : item.images;
+
+            return (
+              <li key={itemText} className="rounded-2xl border border-slate-100 bg-slate-50 px-4 py-3 text-sm leading-6 text-slate-700">
+                <div className="flex gap-3">
+                  <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-700" />
+                  <span><LinkedText text={itemText} /></span>
+                </div>
+                <SectionImages images={itemImages} fallbackTitle={section.imageTitle || section.title} />
+              </li>
+            );
+          })}
         </ul>
       )}
 
