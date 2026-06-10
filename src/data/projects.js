@@ -71,7 +71,7 @@ export const projects = [
       "cAdvisor exposes container CPU, memory, and network usage.",
       "Grafana dashboards provide visibility into production behavior.",
       "Custom admin login metrics track successful and failed login events.",
-      "Backup automation supports PostgreSQL disaster-recovery planning."
+      "Backup automation supports PostgreSQL disaster-recovery planning using [backup script](https://github.com/emmauopeople/scripts/blob/main/backup_pg.sh) and [restore script](https://github.com/emmauopeople/scripts/blob/main/restore_pg.sh)."
     ],
     troubleshooting: "A key production issue involved mobile image uploads intermittently failing while desktop uploads worked. The investigation covered browser policy, storage rules, secure browser context, mobile file size, MIME type normalization, NGINX logs, and device-specific behavior.",
     results: [
@@ -109,8 +109,8 @@ export const projects = [
       },
       monitoring: {
         title: "Grafana Monitoring Dashboard",
-        description: "Monitoring evidence can be placed here after the Grafana dashboard screenshot is added.",
-        src: "/assets/images/projects/one-community-docker-compose/grafana-dashboard.jpg"
+        description: "Monitoring evidence showing the Grafana dashboard for production visibility.",
+        src: "/assets/images/projects/one-community-docker-compose/monitoring-dashboard.png"
       }
     }
   },
