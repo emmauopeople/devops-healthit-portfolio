@@ -42,7 +42,14 @@ export const projects = [
       "Created the NGINX configuration for frontend and backend reverse proxy traffic using [site.conf](https://github.com/emmauopeople/scripts/blob/main/site.conf).",
       "Configured TLS certificates for secure browser access using the Certbot container service.",
       "Started and recreated production containers with Docker Compose using docker compose up --force-recreate.",
-      "Verified running services with docker ps to confirm NGINX, Certbot, cAdvisor, Prometheus, node exporter, frontend, and backend containers were up.",
+      {
+        text: "Verified running services with docker ps to confirm NGINX, Certbot, cAdvisor, Prometheus, node exporter, frontend, and backend containers were up.",
+        images: {
+          title: "Running services",
+          description: "docker ps output confirming the production containers were running after deployment.",
+          src: "/assets/images/projects/one-community-docker-compose/docker-ps.png"
+        }
+      },
       "Validated production endpoints using browser testing, curl checks, and logs."
     ],
     monitoring: [
@@ -81,18 +88,11 @@ export const projects = [
         description: "Architecture diagram for frontend, backend, database, object storage, monitoring, backups, and reverse proxy flow.",
         src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.png"
       },
-      deployment: [
-        {
-          title: "One Community Infrastructure on OVHcloud",
-          description: "Deployment view showing users in Cameroon, OVHcloud application and database servers, monitoring, and AWS S3 media storage.",
-          src: "/assets/images/projects/one-community-docker-compose/one-community-infrastructure.png"
-        },
-        {
-          title: "Docker Compose Services Running",
-          description: "docker ps output showing the running production containers after docker compose up --force-recreate.",
-          src: "/assets/images/projects/one-community-docker-compose/docker-containers-running.svg"
-        }
-      ],
+      deployment: {
+        title: "One Community Infrastructure on OVHcloud",
+        description: "Deployment view showing users in Cameroon, OVHcloud application and database servers, monitoring, and AWS S3 media storage.",
+        src: "/assets/images/projects/one-community-docker-compose/one-community-infrastructure.png"
+      },
       monitoring: {
         title: "Grafana Monitoring Dashboard",
         description: "Monitoring evidence can be placed here after the Grafana dashboard screenshot is added.",
