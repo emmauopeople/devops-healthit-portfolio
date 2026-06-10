@@ -79,6 +79,11 @@ export const projects = [
         description: "Architecture diagram for frontend, backend, database, object storage, monitoring, backups, and reverse proxy flow.",
         src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.jpg"
       },
+      deployment: {
+        title: "One Community Infrastructure on OVHcloud",
+        description: "Deployment view showing users in Cameroon, OVHcloud application and database servers, monitoring, and AWS S3 media storage.",
+        src: "/assets/images/projects/one-community-docker-compose/one-community-infrastructure-ovhcloud.svg"
+      },
       monitoring: {
         title: "Grafana Monitoring Dashboard",
         description: "Monitoring evidence can be placed here after the Grafana dashboard screenshot is added.",
