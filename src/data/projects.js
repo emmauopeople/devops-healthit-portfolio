@@ -36,10 +36,10 @@ export const projects = [
       "Object storage was integrated for provider skill images and media assets."
     ],
     deployment: [
-      "Provisioned a Linux VPS and installed Docker and Docker Compose using an automation script: https://github.com/emmauopeople/scripts/blob/main/install-docker.sh.",
+      "Provisioned a Linux VPS and installed Docker and Docker Compose using an automation [script](https://github.com/emmauopeople/scripts/blob/main/install-docker.sh).",
       "NGINX and Certbot run as Docker Compose services instead of being managed only as host-level services.",
       "Configured production domains for frontend and backend routing.",
-      "Created the NGINX configuration for frontend and backend reverse proxy traffic using site.conf: https://github.com/emmauopeople/scripts/blob/main/site.conf.",
+      "Created the NGINX configuration for frontend and backend reverse proxy traffic using [site.conf](https://github.com/emmauopeople/scripts/blob/main/site.conf).",
       "Configured TLS certificates for secure browser access using the Certbot container service.",
       "Started and recreated production containers with Docker Compose using docker compose up --force-recreate.",
       "Verified running services with docker ps to confirm NGINX, Certbot, cAdvisor, Prometheus, node exporter, frontend, and backend containers were up.",
