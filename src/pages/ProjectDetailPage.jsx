@@ -20,8 +20,8 @@ function ProjectImage({ image, fallbackTitle }) {
   if (!image?.src) return null;
 
   return (
-    <figure className="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
-      <img src={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`} alt={image.title || fallbackTitle} className="w-full object-cover" />
+    <figure className="mx-auto mt-6 max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 sm:max-w-[70%]">
+      <img src={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`} alt={image.title || fallbackTitle} className="w-full object-contain" />
       <figcaption className="border-t border-slate-200 bg-white px-5 py-4">
         <p className="text-sm font-black text-slate-900">{image.title || fallbackTitle}</p>
         {image.description && <p className="mt-1 text-sm leading-6 text-slate-600">{image.description}</p>}
