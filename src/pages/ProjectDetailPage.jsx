@@ -16,18 +16,51 @@ const sectionOrder = [
   { key: "lessons", title: "Lessons Learned", type: "list" },
 ];
 
-function LinkedText({ text }) {
-  const parts = String(text).split(/(https?:\/\/[^\s)]+)/g);
+const linkClass = "font-bold text-sky-700 underline underline-offset-4 hover:text-sky-900";
 
-  return parts.map((part, index) =>
-    part.startsWith("http") ? (
-      <a key={`${part}-${index}`} href={part} target="_blank" rel="noreferrer" className="font-bold text-sky-700 underline underline-offset-4 hover:text-sky-900">
-        {part}
+function renderPlainTextWithUrls(text, keyPrefix) {
+  return String(text)
+    .split(/(https?:\/\/[^\s)]+)/g)
+    .map((part, index) =>
+      part.startsWith("http") ? (
+        <a key={`${keyPrefix}-url-${index}`} href={part} target="_blank" rel="noreferrer" className={linkClass}>
+          {part}
+        </a>
+      ) : (
+        part
+      )
+    );
+}
+
+function LinkedText({ text }) {
+  const source = String(text);
+  const markdownLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g;
+  const output = [];
+  let lastIndex = 0;
+  let match;
+
+  while ((match = markdownLinkPattern.exec(source)) !== null) {
+    const [fullMatch, label, url] = match;
+    const matchIndex = match.index;
+
+    if (matchIndex > lastIndex) {
+      output.push(...renderPlainTextWithUrls(source.slice(lastIndex, matchIndex), `text-${lastIndex}`));
+    }
+
+    output.push(
+      <a key={`${url}-${matchIndex}`} href={url} target="_blank" rel="noreferrer" className={linkClass}>
+        {label}
       </a>
-    ) : (
-      part
-    )
-  );
+    );
+
+    lastIndex = matchIndex + fullMatch.length;
+  }
+
+  if (lastIndex < source.length) {
+    output.push(...renderPlainTextWithUrls(source.slice(lastIndex), `text-${lastIndex}`));
+  }
+
+  return output;
 }
 
 function ProjectImage({ image, fallbackTitle }) {
