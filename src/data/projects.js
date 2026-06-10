@@ -77,7 +77,7 @@ export const projects = [
       architecture: {
         title: "Production Architecture Diagram",
         description: "Architecture diagram for frontend, backend, database, object storage, monitoring, backups, and reverse proxy flow.",
-        src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.svg"
+        src: "/assets/images/projects/one-community-docker-compose/architecture-diagram.jpg"
       },
       monitoring: {
         title: "Grafana Monitoring Dashboard",
