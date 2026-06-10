@@ -69,9 +69,14 @@ function ProjectImage({ image, fallbackTitle, compact = false }) {
 
   if (!image?.src) return null;
 
+  const isFull = image.layout === "full";
+  const isPhone = image.layout === "phone";
   const figureClass = compact
     ? "mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50"
-    : "mx-auto mt-6 max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 sm:max-w-[70%]";
+    : isFull
+      ? "mx-auto mt-6 w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50"
+      : "mx-auto mt-6 max-w-full overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 sm:max-w-[70%]";
+  const imgClass = isPhone ? "mx-auto max-h-[560px] w-auto max-w-full object-contain" : "w-full object-contain";
 
   return (
     <figure className={figureClass}>
@@ -83,7 +88,7 @@ function ProjectImage({ image, fallbackTitle, compact = false }) {
           decoding={image.priority ? "sync" : "async"}
           fetchPriority={image.priority ? "high" : "auto"}
           onLoad={() => setIsLoaded(true)}
-          className={`w-full object-contain transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
+          className={`${imgClass} transition-opacity duration-300 ${isLoaded ? "opacity-100" : "opacity-0"}`}
         />
       </div>
       <figcaption className="border-t border-slate-200 bg-white px-5 py-4">
@@ -99,17 +104,26 @@ function SectionImages({ images, fallbackTitle }) {
 
   if (!imageList.length) return null;
 
-  if (imageList.length > 1) {
-    return (
-      <div className="mt-6 grid gap-5 lg:grid-cols-2">
-        {imageList.map((image) => (
-          <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} compact />
-        ))}
-      </div>
-    );
-  }
+  const fullWidthImages = imageList.filter((image) => image.layout === "full");
+  const groupedImages = imageList.filter((image) => image.layout !== "full");
 
-  return <ProjectImage image={imageList[0]} fallbackTitle={fallbackTitle} />;
+  return (
+    <>
+      {fullWidthImages.map((image) => (
+        <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} />
+      ))}
+
+      {groupedImages.length > 1 && (
+        <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          {groupedImages.map((image) => (
+            <ProjectImage key={image.src} image={image} fallbackTitle={fallbackTitle} compact />
+          ))}
+        </div>
+      )}
+
+      {groupedImages.length === 1 && <ProjectImage image={groupedImages[0]} fallbackTitle={fallbackTitle} />}
+    </>
+  );
 }
 
 function ArchitectureStack({ project, sectionKey }) {
