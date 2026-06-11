@@ -115,7 +115,6 @@ export const projects = [
     links: {
       repository: "https://github.com/emmauopeople/1community_app",
       adminRepository: "https://github.com/emmauopeople/one-community-admin",
-      deploymentRepository: "https://github.com/emmauopeople/1community_deployment_configurations",
       publicSite: "https://www.cameroonskills.org",
       adminPortal: "https://admin.cameroonskills.org"
     },
