@@ -209,11 +209,11 @@ function ProjectDetailPage() {
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
 
   return (
-    <section className="bg-slate-50">
-      <div className="grid min-h-[calc(100vh-4rem)] w-full lg:grid-cols-[320px_minmax(0,1fr)]">
+    <section className="h-[calc(100vh-4rem)] overflow-hidden bg-slate-50">
+      <div className="grid h-full w-full lg:grid-cols-[320px_minmax(0,1fr)]">
         <ProjectMenu activeSlug={project.slug} />
 
-        <main className="min-w-0 py-10 lg:py-12">
+        <main className="min-w-0 overflow-y-auto py-10 lg:py-12">
           <Container>
             <article>
               <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
