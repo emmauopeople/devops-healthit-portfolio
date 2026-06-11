@@ -3,7 +3,7 @@ import { projects } from "../../data/projects";
 
 function ProjectMenu({ activeSlug }) {
   return (
-    <aside className="border-b border-slate-200 bg-slate-100 lg:sticky lg:top-16 lg:min-h-[calc(100vh-4rem)] lg:border-b-0 lg:border-r">
+    <aside className="border-b border-slate-200 bg-slate-100 lg:h-full lg:overflow-y-auto lg:border-b-0 lg:border-r">
       <div className="px-5 py-6 lg:px-6 lg:py-8">
         <p className="text-xs font-black uppercase tracking-[0.35em] text-sky-700">Projects</p>
         <nav className="mt-5 grid gap-3">
