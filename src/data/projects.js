@@ -95,12 +95,12 @@ export const projects = [
           {
             title: "Public mobile view",
             description: "Public mobile view for discovering local skills and services.",
-            src: "/assets/images/projects/one-community-docker-compose/public-mobile.jpg",
+            src: "/assets/images/projects/one-community-docker-compose/public-mobile.jpeg",
             layout: "phone"
           }
         ]
       },
-      "Admin dashboard supports operational review and workflow management.",
+      "[Admin dashboard](https://admin.cameroonskills.org) supports operational review and workflow management.",
       "Monitoring stack provides visibility into containers and service health.",
       "Daily database backup strategy is prepared for recovery planning.",
       "Production troubleshooting process is documented as part of the case study."
