@@ -18,7 +18,7 @@ const sectionOrder = [
 ];
 
 const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
-const inProgressNotice = "This project is in progress, these are place holders";
+const inProgressNotice = "this project is in progress, these are place holders";
 
 function renderPlainTextWithUrls(text, keyPrefix) {
   return String(text)
