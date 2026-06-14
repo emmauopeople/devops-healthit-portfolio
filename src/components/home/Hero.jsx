@@ -1,7 +1,7 @@
 function Hero() {
   return (
     <section className="w-full overflow-hidden border-b border-slate-200 bg-gradient-to-r from-sky-50 via-white to-emerald-50">
-      <div className="grid min-h-[340px] w-full lg:min-h-[38vh] lg:grid-cols-[minmax(3rem,1fr)_270px_minmax(3rem,1fr)_minmax(620px,2fr)_minmax(3rem,1fr)]">
+      <div className="grid min-h-[340px] w-full lg:min-h-[38vh] lg:grid-cols-[minmax(2rem,1fr)_270px_minmax(2rem,0.5fr)_minmax(0,760px)_minmax(2rem,1fr)]">
         <div className="hidden lg:block" />
 
         <div className="flex h-full items-stretch justify-center px-6 py-8 lg:px-0 lg:py-0">
@@ -17,8 +17,9 @@ function Hero() {
         <div className="hidden lg:block" />
 
         <div className="relative flex min-w-0 flex-col justify-center px-6 py-10 sm:px-10 lg:px-0">
-          <h1 className="whitespace-nowrap text-[clamp(2rem,4vw,3.6rem)] font-black leading-tight tracking-tight text-slate-950">
-            Mbimunyui Emmanuel, RN, MSIT
+          <h1 className="max-w-5xl break-words text-4xl font-black leading-[1.05] tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+            <span className="block xl:inline">Mbimunyui Emmanuel,</span>
+            <span className="block xl:inline xl:pl-3">RN, MSIT</span>
           </h1>
 
           <p className="mt-4 max-w-5xl text-lg font-bold leading-7 text-sky-800 sm:text-2xl">
