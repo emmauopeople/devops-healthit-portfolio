@@ -18,6 +18,7 @@ const sectionOrder = [
 ];
 
 const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
+const inProgressNotice = "This project is in progress, these are place holders";
 
 function renderPlainTextWithUrls(text, keyPrefix) {
   return String(text)
@@ -218,6 +219,11 @@ function ProjectDetailPage() {
             <article>
               <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
                 <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">{heroTitle}</h1>
+                {!isOneCommunity && (
+                  <p className="mt-4 inline-flex rounded-xl border border-yellow-300 bg-yellow-100 px-4 py-2 text-sm font-black text-yellow-900 shadow-sm">
+                    {inProgressNotice}
+                  </p>
+                )}
                 <p className="mt-4 max-w-4xl text-xl font-bold leading-8 text-sky-800 sm:text-2xl">{heroSubtitle}</p>
                 <p className="mt-3 max-w-4xl text-base font-semibold leading-7 text-slate-700 sm:text-lg">{heroDeployment}</p>
 
