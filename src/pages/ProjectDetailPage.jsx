@@ -127,23 +127,6 @@ function SectionImages({ images, fallbackTitle }) {
   );
 }
 
-function ArchitectureStack({ project, sectionKey }) {
-  if (sectionKey !== "architecture" || !project.stack?.length) return null;
-
-  return (
-    <div className="mt-6 rounded-3xl border border-sky-100 bg-sky-50/70 p-5">
-      <p className="text-xs font-black uppercase tracking-[0.25em] text-sky-700">Technology Stack</p>
-      <div className="mt-4 flex flex-wrap gap-2">
-        {project.stack.map((item) => (
-          <span key={item} className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-700 shadow-sm">
-            {item}
-          </span>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 function SectionDetailList({ title, items }) {
   if (!title || !items?.length) return null;
 
@@ -199,7 +182,6 @@ function CaseStudySection({ project, section }) {
         </ul>
       )}
 
-      <ArchitectureStack project={project} sectionKey={section.key} />
       <SectionImages images={images} fallbackTitle={section.imageTitle || section.title} />
     </section>
   );
