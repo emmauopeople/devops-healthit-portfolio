@@ -144,11 +144,31 @@ function ArchitectureStack({ project, sectionKey }) {
   );
 }
 
+function SectionDetailList({ title, items }) {
+  if (!title || !items?.length) return null;
+
+  return (
+    <div className="mt-6 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+      <h3 className="text-lg font-black text-slate-950">{title}</h3>
+      <ul className="mt-4 grid gap-3">
+        {items.map((item) => (
+          <li key={item} className="flex gap-3 text-sm leading-6 text-slate-700">
+            <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-sky-700" />
+            <span><LinkedText text={item} /></span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function CaseStudySection({ project, section }) {
   const content = project[section.key];
   const images = project.sectionImages?.[section.key];
+  const detailTitle = project[`${section.key}DetailsTitle`];
+  const detailItems = project[`${section.key}Details`];
 
-  if (!content && !images) return null;
+  if (!content && !images && !detailItems?.length) return null;
 
   return (
     <section id={section.key} className="scroll-mt-28 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/70 sm:p-9">
@@ -158,6 +178,7 @@ function CaseStudySection({ project, section }) {
       </div>
 
       {section.type === "text" && content && <p className="mt-5 text-base leading-8 text-slate-700"><LinkedText text={content} /></p>}
+      <SectionDetailList title={detailTitle} items={detailItems} />
 
       {section.type === "list" && Array.isArray(content) && (
         <ul className="mt-5 grid gap-3">
