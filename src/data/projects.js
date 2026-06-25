@@ -192,6 +192,17 @@ export const projects = [
     summary: "This is a real production deployment for a growing parish with multiple mission stations, replacing paper-based member, sacrament, certificate, document, and parish administration workflows with a modern web platform. The project demonstrates how application code becomes a secure, scalable, observable production cloud platform using React, Fastify microservices, PostgreSQL, containers, CI/CD, GitOps, AWS EKS, monitoring, logging, backups, rollback, and security controls.",
     problem: "The Parish of \"Parish Name\" is growing, with multiple outstations and an increasing number of members. However, the parish still depends on a manual paper-based system to manage member records, sacrament records, church cards, certificates, and documents. This makes it difficult to track church growth, know which outstations need more support, find old documents, reproduce lost certificates, and analyze parish membership by age group, station, or sacrament status.",
     solution: "This project aims to replace the parish's manual, paper-based record system with a centralized digital Church Management System that improves member tracking, document management, sacrament records, mission station reporting, and data-driven parish planning.",
+    objectives: [
+      "Production-grade AWS infrastructure design.",
+      "Kubernetes deployment using Amazon EKS.",
+      "GitHub Actions CI/CD.",
+      "GitOps deployment with Argo CD.",
+      "Helm-based application packaging.",
+      "PostgreSQL migration to Amazon RDS.",
+      "Centralized monitoring, logging, and alerting.",
+      "Backup, restore, and rollback strategy.",
+      "Cloud security using IAM, WAF, TLS, private subnets, secrets, and RBAC."
+    ],
     architecture: [
       "Frontend: React + TypeScript + Vite application.",
       "Auth Service: Handles login, users, JWT authentication, and role-based access.",
