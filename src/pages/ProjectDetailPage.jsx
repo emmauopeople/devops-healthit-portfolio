@@ -7,6 +7,7 @@ import { getProjectBySlug, projects } from "../data/projects";
 const sectionOrder = [
   { key: "problem", title: "Problem", type: "text" },
   { key: "solution", title: "Solution", type: "text" },
+  { key: "objectives", title: "Objectives", type: "list" },
   { key: "architecture", title: "Architecture", type: "list", imageTitle: "Architecture Diagram" },
   { key: "security", title: "Security", type: "list" },
   { key: "implementation", title: "Implementation", type: "list" },
@@ -231,8 +232,12 @@ function ProjectDetailPage() {
   }
 
   const isOneCommunity = project.slug === "one-community-docker-compose";
+  const isChurchManagement = project.slug === "church-management-kubernetes";
   const heroTitle = isOneCommunity ? "One Community" : project.name;
   const heroSubtitle = isOneCommunity ? "Skill visibility and data platform." : project.summary;
+  const heroSubtitleClass = isChurchManagement
+    ? "mt-4 max-w-4xl text-base font-semibold leading-7 text-sky-800 sm:text-lg"
+    : "mt-4 max-w-4xl text-xl font-bold leading-8 text-sky-800 sm:text-2xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
 
@@ -251,7 +256,7 @@ function ProjectDetailPage() {
                     {inProgressNotice}
                   </p>
                 )}
-                <p className="mt-4 max-w-4xl text-xl font-bold leading-8 text-sky-800 sm:text-2xl">{heroSubtitle}</p>
+                <p className={heroSubtitleClass}>{heroSubtitle}</p>
                 <p className="mt-3 max-w-4xl text-base font-semibold leading-7 text-slate-700 sm:text-lg">{heroDeployment}</p>
 
                 {liveLink && (
