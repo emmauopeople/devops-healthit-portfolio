@@ -206,14 +206,21 @@ export const projects = [
       "Reduces paperwork, manual searching, duplication of records, and loss of important church documents."
     ],
     architecture: [
-      "A React frontend will provide member, leader, and administrator workflows.",
-      "Ingress will route HTTPS traffic to the frontend and backend APIs.",
-      "An authentication service will manage login, roles, and access control.",
-      "Member, sacrament, document, reporting, certificate, and notification services will own separate business workflows.",
-      "Each service can use its own database schema or database boundary to reduce coupling.",
-      "Kubernetes services will provide internal service discovery between workloads.",
-      "Prometheus and Grafana will collect and display service, pod, and cluster health metrics."
+      "Frontend: React + TypeScript + Vite application.",
+      "Auth Service: Handles login, users, JWT authentication, and role-based access.",
+      "Church Core Service: Manages members, sacrament records, member codes, and parish business rules.",
+      "Document Service: Handles certificate generation, document upload, preview, search, and download.",
+      "Databases: Separate PostgreSQL-backed data stores for authentication, church core records, and document records.",
+      "Observability: Fastify structured logs, health endpoints, database health checks, and Prometheus metrics."
     ],
+    sectionImages: {
+      architecture: {
+        title: "Church Management System - Application Architecture",
+        description: "Architecture diagram showing the React + TypeScript frontend, Fastify microservices, PostgreSQL-backed domain modules, and observability outputs.",
+        src: "/assets/images/projects/church-managment-system/application-architecture.png",
+        layout: "full"
+      }
+    },
     security: [
       "Role-based access control will separate parish administrator, priest, secretary, finance, outstation leader, and general user permissions.",
       "TLS termination through ingress will protect browser traffic.",
