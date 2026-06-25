@@ -174,13 +174,16 @@ function CaseStudySection({ project, section }) {
   const images = project.sectionImages?.[section.key];
   const detailTitle = project[`${section.key}DetailsTitle`];
   const detailItems = project[`${section.key}Details`];
+  const sectionTitle = section.key === "architecture" && project.slug === "church-management-kubernetes"
+    ? "Application Architecture"
+    : section.title;
 
   if (!content && !images && !detailItems?.length) return null;
 
   return (
     <section id={section.key} className="scroll-mt-28 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/70 sm:p-9">
       <div className="flex items-center gap-4">
-        <h2 className="text-2xl font-black text-slate-950">{section.title}</h2>
+        <h2 className="text-2xl font-black text-slate-950">{sectionTitle}</h2>
         <div className="h-px flex-1 bg-slate-200" />
       </div>
 
