@@ -192,6 +192,19 @@ export const projects = [
     summary: "A planned parish operations platform that digitizes member records, sacrament records, church cards, certificates, documents, outstation reporting, and parish planning.",
     problem: "The Parish of \"Parish Name\" is growing, with multiple outstations and an increasing number of members. However, the parish still depends on a manual paper-based system to manage member records, sacrament records, church cards, certificates, and documents. This makes it difficult to track church growth, know which outstations need more support, find old documents, reproduce lost certificates, and analyze parish membership by age group, station, or sacrament status.",
     solution: "This project aims to replace the parish's manual, paper-based record system with a centralized digital Church Management System that improves member tracking, document management, sacrament records, mission station reporting, and data-driven parish planning.",
+    solutionDetailsTitle: "What the System Does",
+    solutionDetails: [
+      "Registers and manages members across the main parish and all outstations.",
+      "Tracks member movement, active members, inactive members, new members, and transferred members.",
+      "Stores sacrament records such as baptism, confirmation, marriage, first communion, and other church records.",
+      "Generates church cards, sacrament certificates, and official parish documents digitally.",
+      "Keeps digital copies of important documents for easy searching and retrieval.",
+      "Allows lost certificates or church cards to be traced and reproduced faster.",
+      "Organizes members by outstation, age group, family, gender, and sacrament status.",
+      "Shows which outstations are growing and which need more evangelization or support.",
+      "Provides reports and analytics for parish leadership to support planning and decision-making.",
+      "Reduces paperwork, manual searching, duplication of records, and loss of important church documents."
+    ],
     architecture: [
       "A React frontend will provide member, leader, and administrator workflows.",
       "Ingress will route HTTPS traffic to the frontend and backend APIs.",
@@ -210,16 +223,12 @@ export const projects = [
       "Container images will be built through CI/CD and deployed with least-privilege credentials."
     ],
     implementation: [
-      "Registers and manages members across the main parish and all outstations.",
-      "Tracks member movement, active members, inactive members, new members, and transferred members.",
-      "Stores sacrament records such as baptism, confirmation, marriage, first communion, and other church records.",
-      "Generates church cards, sacrament certificates, and official parish documents digitally.",
-      "Keeps digital copies of important documents for easy searching and retrieval.",
-      "Allows lost certificates or church cards to be traced and reproduced faster.",
-      "Organizes members by outstation, age group, family, gender, and sacrament status.",
-      "Shows which outstations are growing and which need more evangelization or support.",
-      "Provides reports and analytics for parish leadership to support planning and decision-making.",
-      "Reduces paperwork, manual searching, duplication of records, and loss of important church documents."
+      "Define microservice boundaries for authentication, member records, sacrament records, document management, certificate generation, reporting, and notifications.",
+      "Build containerized APIs for each service with health endpoints and clear environment configuration.",
+      "Create frontend workflows for parish staff, priests, outstation leaders, and administrators.",
+      "Package services with Kubernetes manifests or Helm charts.",
+      "Create database migration and seed-data workflows for each service boundary.",
+      "Automate image builds, tests, and deployment through GitHub Actions."
     ],
     deployment: [
       "Provision a Kubernetes cluster for the application workloads.",
