@@ -192,19 +192,6 @@ export const projects = [
     summary: "This is a real production deployment for a growing parish with multiple mission stations, replacing paper-based member, sacrament, certificate, document, and parish administration workflows with a modern web platform. The project demonstrates how application code becomes a secure, scalable, observable production cloud platform using React, Fastify microservices, PostgreSQL, containers, CI/CD, GitOps, AWS EKS, monitoring, logging, backups, rollback, and security controls.",
     problem: "The Parish of \"Parish Name\" is growing, with multiple outstations and an increasing number of members. However, the parish still depends on a manual paper-based system to manage member records, sacrament records, church cards, certificates, and documents. This makes it difficult to track church growth, know which outstations need more support, find old documents, reproduce lost certificates, and analyze parish membership by age group, station, or sacrament status.",
     solution: "This project aims to replace the parish's manual, paper-based record system with a centralized digital Church Management System that improves member tracking, document management, sacrament records, mission station reporting, and data-driven parish planning.",
-    solutionDetailsTitle: "What the System Does",
-    solutionDetails: [
-      "Registers and manages members across the main parish and all outstations.",
-      "Tracks member movement, active members, inactive members, new members, and transferred members.",
-      "Stores sacrament records such as baptism, confirmation, marriage, first communion, and other church records.",
-      "Generates church cards, sacrament certificates, and official parish documents digitally.",
-      "Keeps digital copies of important documents for easy searching and retrieval.",
-      "Allows lost certificates or church cards to be traced and reproduced faster.",
-      "Organizes members by outstation, age group, family, gender, and sacrament status.",
-      "Shows which outstations are growing and which need more evangelization or support.",
-      "Provides reports and analytics for parish leadership to support planning and decision-making.",
-      "Reduces paperwork, manual searching, duplication of records, and loss of important church documents."
-    ],
     architecture: [
       "Frontend: React + TypeScript + Vite application.",
       "Auth Service: Handles login, users, JWT authentication, and role-based access.",
