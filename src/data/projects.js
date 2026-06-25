@@ -189,33 +189,37 @@ export const projects = [
     timeframe: "Planned",
     stack: ["React", "Node.js", "Express", "PostgreSQL", "Docker", "Kubernetes", "Helm", "Ingress", "GitHub Actions", "Prometheus", "Grafana"],
     focus: ["Microservice architecture", "Kubernetes deployment", "Service discovery", "CI/CD", "Observability"],
-    summary: "A planned church operations platform built as separate microservices and deployed on Kubernetes for member management, attendance, giving records, events, communication, and administrative workflows.",
-    problem: "Many churches manage members, attendance, events, ministries, communication lists, and giving records with spreadsheets, paper forms, and disconnected tools. This makes it difficult to keep records current, coordinate ministry work, protect sensitive information, and understand church activity over time.",
-    solution: "The planned solution is a church management system designed as independent services that can be developed, deployed, scaled, and monitored separately. Kubernetes will provide orchestration, service discovery, rolling updates, health checks, and a repeatable deployment model for the platform.",
+    summary: "A planned parish operations platform that digitizes member records, sacrament records, church cards, certificates, documents, outstation reporting, and parish planning.",
+    problem: "The Parish of \"Parish Name\" is growing, with multiple outstations and an increasing number of members. However, the parish still depends on a manual paper-based system to manage member records, sacrament records, church cards, certificates, and documents. This makes it difficult to track church growth, know which outstations need more support, find old documents, reproduce lost certificates, and analyze parish membership by age group, station, or sacrament status.",
+    solution: "This project aims to replace the parish's manual, paper-based record system with a centralized digital Church Management System that improves member tracking, document management, sacrament records, mission station reporting, and data-driven parish planning.",
     architecture: [
       "A React frontend will provide member, leader, and administrator workflows.",
       "Ingress will route HTTPS traffic to the frontend and backend APIs.",
       "An authentication service will manage login, roles, and access control.",
-      "Member, attendance, events, giving-records, and notification services will own separate business workflows.",
+      "Member, sacrament, document, reporting, certificate, and notification services will own separate business workflows.",
       "Each service can use its own database schema or database boundary to reduce coupling.",
       "Kubernetes services will provide internal service discovery between workloads.",
       "Prometheus and Grafana will collect and display service, pod, and cluster health metrics."
     ],
     security: [
-      "Role-based access control will separate admin, ministry leader, finance, and general user permissions.",
+      "Role-based access control will separate parish administrator, priest, secretary, finance, outstation leader, and general user permissions.",
       "TLS termination through ingress will protect browser traffic.",
       "Kubernetes secrets or a cloud secret manager will store sensitive configuration.",
       "Network policies can restrict internal service-to-service communication.",
-      "Giving records and personal member information will require careful access controls and audit-friendly workflows.",
+      "Sacrament records, certificates, member records, and uploaded parish documents will require careful access controls and audit-friendly workflows.",
       "Container images will be built through CI/CD and deployed with least-privilege credentials."
     ],
     implementation: [
-      "Define service boundaries for authentication, members, attendance, events, giving records, notifications, and reporting.",
-      "Build containerized APIs for each service with health endpoints and clear environment configuration.",
-      "Create frontend workflows for church staff, ministry leaders, and administrators.",
-      "Package services with Kubernetes manifests or Helm charts.",
-      "Create database migration and seed-data workflows for each service boundary.",
-      "Automate image builds, tests, and deployment through GitHub Actions."
+      "Registers and manages members across the main parish and all outstations.",
+      "Tracks member movement, active members, inactive members, new members, and transferred members.",
+      "Stores sacrament records such as baptism, confirmation, marriage, first communion, and other church records.",
+      "Generates church cards, sacrament certificates, and official parish documents digitally.",
+      "Keeps digital copies of important documents for easy searching and retrieval.",
+      "Allows lost certificates or church cards to be traced and reproduced faster.",
+      "Organizes members by outstation, age group, family, gender, and sacrament status.",
+      "Shows which outstations are growing and which need more evangelization or support.",
+      "Provides reports and analytics for parish leadership to support planning and decision-making.",
+      "Reduces paperwork, manual searching, duplication of records, and loss of important church documents."
     ],
     deployment: [
       "Provision a Kubernetes cluster for the application workloads.",
@@ -230,14 +234,14 @@ export const projects = [
       "Grafana dashboards will show API health, request trends, pod restarts, and resource usage.",
       "Structured logs will help trace issues across services.",
       "Alerts can notify on failed deployments, high error rates, database connection failures, or unhealthy pods.",
-      "Audit-friendly reporting will help track administrative and finance-related activity."
+      "Audit-friendly reporting will help track administrative and document-related activity."
     ],
-    troubleshooting: "This case study will document expected microservice and Kubernetes issues such as service discovery failures, ingress routing problems, readiness probe failures, database migration order, environment configuration drift, role-permission mistakes, and cross-service debugging.",
+    troubleshooting: "This case study will document expected microservice and Kubernetes issues such as service discovery failures, ingress routing problems, readiness probe failures, database migration order, environment configuration drift, document upload and retrieval problems, certificate generation errors, role-permission mistakes, and cross-service debugging.",
     results: ["Planned project. Results will be added after the church management microservices platform is implemented and deployed."],
     lessons: [
       "Microservices require clear service boundaries and operational discipline.",
       "Kubernetes adds deployment power, but observability and configuration management must be designed from the beginning.",
-      "Church management systems handle sensitive personal and finance-related data, so security and role design are part of the architecture, not an afterthought."
+      "Church management systems handle sensitive member, sacrament, certificate, and document records, so security and role design are part of the architecture, not an afterthought."
     ]
   },
   {
