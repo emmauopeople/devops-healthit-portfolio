@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">CI/CD Pipeline Evidence</text>
+  <text x="60" y="108" font-family="Arial" font-size="18" fill="#475569">GitHub Actions builds service images, pushes to Amazon ECR, and updates GitOps deployment tags.</text>
+  <rect x="70" y="165" width="310" height="330" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="105" y="215" font-family="Arial" font-size="22" font-weight="700" fill="#0f172a">GitHub Actions</text>
+  <circle cx="110" cy="265" r="10" fill="#16a34a"/><text x="135" y="271" font-family="Arial" font-size="17" fill="#0f172a">Build auth-service</text>
+  <circle cx="110" cy="305" r="10" fill="#16a34a"/><text x="135" y="311" font-family="Arial" font-size="17" fill="#0f172a">Build church-core-service</text>
+  <circle cx="110" cy="345" r="10" fill="#16a34a"/><text x="135" y="351" font-family="Arial" font-size="17" fill="#0f172a">Build document-service</text>
+  <circle cx="110" cy="385" r="10" fill="#16a34a"/><text x="135" y="391" font-family="Arial" font-size="17" fill="#0f172a">Build frontend</text>
+  <circle cx="110" cy="425" r="10" fill="#16a34a"/><text x="135" y="431" font-family="Arial" font-size="17" fill="#0f172a">Update GitOps image tags</text>
+  <rect x="450" y="165" width="300" height="330" rx="24" fill="#ecfdf5" stroke="#22c55e"/>
+  <text x="485" y="215" font-family="Arial" font-size="22" font-weight="700" fill="#166534">Image Traceability</text>
+  <text x="485" y="265" font-family="Arial" font-size="17" fill="#0f172a">prod-&lt;short-sha&gt;</text>
+  <text x="485" y="305" font-family="Arial" font-size="17" fill="#0f172a">sha-&lt;full-sha&gt;</text>
+  <text x="485" y="345" font-family="Arial" font-size="17" fill="#0f172a">Matrix build for 4 images</text>
+  <text x="485" y="385" font-family="Arial" font-size="17" fill="#0f172a">GitOps tag file committed</text>
+  <rect x="820" y="165" width="310" height="330" rx="24" fill="#ffedd5" stroke="#fb923c"/>
+  <text x="855" y="215" font-family="Arial" font-size="22" font-weight="700" fill="#9a3412">Amazon ECR</text>
+  <text x="855" y="265" font-family="Arial" font-size="17" fill="#0f172a">church-frontend</text>
+  <text x="855" y="305" font-family="Arial" font-size="17" fill="#0f172a">church-auth-service</text>
+  <text x="855" y="345" font-family="Arial" font-size="17" fill="#0f172a">church-core-service</text>
+  <text x="855" y="385" font-family="Arial" font-size="17" fill="#0f172a">church-document-service</text>
+  <path d="M380 330 H450" stroke="#16a34a" stroke-width="5" marker-end="url(#a)"/>
+  <path d="M750 330 H820" stroke="#16a34a" stroke-width="5" marker-end="url(#a)"/>
+  <rect x="70" y="540" width="1060" height="75" rx="18" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="100" y="585" font-family="Arial" font-size="19" font-weight="700" fill="#1e3a8a">Result: workflow completed successfully, images pushed to ECR, and new tag committed to the GitOps values file.</text>
+  <defs><marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#16a34a"/></marker></defs>
+</svg>
