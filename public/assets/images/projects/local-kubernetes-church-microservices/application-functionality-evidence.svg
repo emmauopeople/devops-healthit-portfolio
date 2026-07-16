@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">Application Functionality Evidence</text>
+  <text x="60" y="108" font-family="Arial" font-size="18" fill="#475569">The church management UI and backend targets were validated while running inside local Kubernetes.</text>
+  <rect x="70" y="155" width="520" height="380" rx="24" fill="#f0fdf4" stroke="#16a34a"/>
+  <text x="110" y="210" font-family="Arial" font-size="26" font-weight="700" fill="#166534">Browser UI Validation</text>
+  <rect x="110" y="250" width="440" height="230" rx="14" fill="#ffffff" stroke="#bbf7d0"/>
+  <text x="140" y="300" font-family="Arial" font-size="20" font-weight="700" fill="#0f172a">Gestion Paroissiale</text>
+  <text x="140" y="345" font-family="Arial" font-size="17" fill="#334155">Parishioners page loaded</text>
+  <text x="140" y="380" font-family="Arial" font-size="17" fill="#334155">Members list visible</text>
+  <text x="140" y="415" font-family="Arial" font-size="17" fill="#334155">Create / edit workflows tested</text>
+  <text x="140" y="450" font-family="Arial" font-size="17" fill="#334155">Document preview/download tested</text>
+  <rect x="650" y="155" width="480" height="380" rx="24" fill="#eff6ff" stroke="#2563eb"/>
+  <text x="690" y="210" font-family="Arial" font-size="26" font-weight="700" fill="#1e3a8a">Prometheus Targets</text>
+  <rect x="690" y="250" width="400" height="230" rx="14" fill="#ffffff" stroke="#bfdbfe"/>
+  <text x="720" y="300" font-family="Arial" font-size="18" fill="#0f172a">auth-service /metrics: UP</text>
+  <text x="720" y="340" font-family="Arial" font-size="18" fill="#0f172a">church-core-service /metrics: UP</text>
+  <text x="720" y="380" font-family="Arial" font-size="18" fill="#0f172a">document-service /metrics: UP</text>
+  <text x="720" y="420" font-family="Arial" font-size="18" fill="#0f172a">ServiceMonitor enabled after monitoring install</text>
+  <rect x="70" y="575" width="1060" height="60" rx="18" fill="#fff7ed" stroke="#fb923c"/>
+  <text x="100" y="612" font-family="Arial" font-size="18" font-weight="700" fill="#9a3412">Result: application, health endpoints, metrics endpoints, and service discovery were validated before AWS EKS deployment.</text>
+</svg>
