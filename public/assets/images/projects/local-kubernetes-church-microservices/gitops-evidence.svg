@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">GitOps Deployment with Argo CD</text>
+  <text x="60" y="108" font-family="Arial" font-size="18" fill="#475569">The platform repository is the source of truth. Argo CD reconciles Kubernetes from Git.</text>
+  <rect x="80" y="165" width="320" height="300" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="115" y="220" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">k8s-microservice-cms</text>
+  <text x="115" y="265" font-family="Arial" font-size="17" fill="#334155">Helm chart</text>
+  <text x="115" y="305" font-family="Arial" font-size="17" fill="#334155">values-local-cka.yaml</text>
+  <text x="115" y="345" font-family="Arial" font-size="17" fill="#334155">values-image-tags.yaml</text>
+  <text x="115" y="385" font-family="Arial" font-size="17" fill="#334155">Git-managed deployment state</text>
+  <rect x="500" y="165" width="260" height="300" rx="24" fill="#ecfdf5" stroke="#22c55e"/>
+  <text x="540" y="220" font-family="Arial" font-size="24" font-weight="700" fill="#166534">Argo CD</text>
+  <text x="540" y="270" font-family="Arial" font-size="18" fill="#0f172a">Application: church-app-local</text>
+  <text x="540" y="310" font-family="Arial" font-size="18" fill="#0f172a">Sync: Synced</text>
+  <text x="540" y="350" font-family="Arial" font-size="18" fill="#0f172a">Health: Healthy</text>
+  <text x="540" y="390" font-family="Arial" font-size="18" fill="#0f172a">Self-healing enabled</text>
+  <rect x="850" y="165" width="270" height="300" rx="24" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="890" y="220" font-family="Arial" font-size="24" font-weight="700" fill="#1e3a8a">church-prod</text>
+  <text x="890" y="270" font-family="Arial" font-size="18" fill="#0f172a">frontend</text>
+  <text x="890" y="310" font-family="Arial" font-size="18" fill="#0f172a">auth-service</text>
+  <text x="890" y="350" font-family="Arial" font-size="18" fill="#0f172a">church-core-service</text>
+  <text x="890" y="390" font-family="Arial" font-size="18" fill="#0f172a">document-service</text>
+  <path d="M400 315 H500" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#b)"/>
+  <path d="M760 315 H850" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#b)"/>
+  <rect x="80" y="525" width="1040" height="80" rx="20" fill="#fef3c7" stroke="#f59e0b"/>
+  <text x="115" y="575" font-family="Arial" font-size="20" font-weight="700" fill="#92400e">Evidence: Argo CD UI and kubectl output showed church-app-local as Synced and Healthy after GitOps tag updates.</text>
+  <defs><marker id="b" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#2563eb"/></marker></defs>
+</svg>
