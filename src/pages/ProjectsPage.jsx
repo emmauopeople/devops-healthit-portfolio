@@ -1,8 +1,7 @@
 import { Navigate } from "react-router-dom";
-import { projects } from "../data/projects";
 
 function ProjectsPage() {
-  return <Navigate to={`/projects/${projects[0].slug}`} replace />;
+  return <Navigate to="/projects/local-kubernetes-church-microservices" replace />;
 }
 
 export default ProjectsPage;
