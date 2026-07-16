@@ -27,12 +27,8 @@ const sections = [
       "Local Kubernetes cluster hosts frontend, auth-service, church-core-service, and document-service in the church-prod namespace.",
       "Amazon ECR stores versioned container images built by GitHub Actions.",
       "Argo CD watches the platform repository and reconciles the Helm deployment from Git.",
-      "Prometheus, Grafana, Fluent Bit, OpenSearch, and OpenSearch Dashboards provide runtime visibility."
+      "Prometheus, Grafana, Fluent Bit, OpenSearch, and OpenSearch Dashboards provide runtime visibility.",
     ],
-    images: [
-      { src: "local-infrastructure.svg", title: "Local Kubernetes test infrastructure", description: "CI/CD, ECR, Argo CD, local Kubernetes namespaces, monitoring, logging, and OVHcloud PostgreSQL." },
-      { src: "application-architecture.svg", title: "Application architecture", description: "React frontend, Fastify/TypeScript microservices, PostgreSQL-backed domain modules, JWT auth, health checks, and metrics." }
-    ]
   },
   {
     title: "CI/CD Pipeline",
@@ -41,11 +37,8 @@ const sections = [
       "Source repository: church_app contains frontend and backend microservice source code.",
       "Workflow builds frontend, auth-service, church-core-service, and document-service images.",
       "Images are pushed to private Amazon ECR repositories for traceable deployment.",
-      "After successful builds, the workflow commits the new image tag to values-image-tags.yaml."
+      "After successful builds, the workflow commits the new image tag to values-image-tags.yaml.",
     ],
-    images: [
-      { src: "ci-cd-evidence.svg", title: "CI/CD evidence", description: "GitHub Actions success, image summary, and Amazon ECR repositories." }
-    ]
   },
   {
     title: "GitOps Deployment",
@@ -55,11 +48,8 @@ const sections = [
       "Target namespace: church-prod.",
       "Sync status: Synced.",
       "Health status: Healthy.",
-      "Image tags are managed through Git instead of manual kubectl changes."
+      "Image tags are managed through Git instead of manual kubectl changes.",
     ],
-    images: [
-      { src: "gitops-evidence.svg", title: "GitOps evidence", description: "Argo CD Synced/Healthy state and GitOps image tag file updated by GitHub Actions." }
-    ]
   },
   {
     title: "Kubernetes Runtime Evidence",
@@ -68,24 +58,8 @@ const sections = [
       "Three local Kubernetes nodes are Ready.",
       "Namespaces include argocd, church-prod, monitoring, and logging.",
       "Application pods are running in church-prod.",
-      "Deployments are available and services are reachable through ClusterIP."
+      "Deployments are available and services are reachable through ClusterIP.",
     ],
-    images: [
-      { src: "kubernetes-runtime-evidence.svg", title: "Kubernetes runtime evidence", description: "Nodes ready, namespaces active, pods running, deployments available, and ClusterIP services." }
-    ]
-  },
-  {
-    title: "Application Functionality",
-    body: "The church management application was tested through the browser while running in Kubernetes. The UI, backend services, and Prometheus targets confirm that the application stack is functional in the local platform environment.",
-    bullets: [
-      "Frontend accessed locally through localhost and kubectl port-forward.",
-      "Parish management UI loads successfully.",
-      "Prometheus target list confirms application services are being scraped.",
-      "Backend services expose health and metrics endpoints."
-    ],
-    images: [
-      { src: "application-functionality-evidence.svg", title: "Application and Prometheus evidence", description: "Working church management UI and Prometheus targets for application services." }
-    ]
   },
   {
     title: "Monitoring and Logging",
@@ -94,13 +68,9 @@ const sections = [
       "Fastify backend services expose /metrics using prom-client.",
       "Grafana visualizes request rate, p95 latency, application instances, memory, CPU, and pod restarts.",
       "Fluent Bit collects Kubernetes container logs as a DaemonSet.",
-      "OpenSearch Dashboards supports log search by time range, namespace, container, route, and Pino log level."
+      "OpenSearch Dashboards supports log search by time range, namespace, container, route, and Pino log level.",
     ],
-    images: [
-      { src: "grafana-monitoring-evidence.svg", title: "Grafana monitoring evidence", description: "Request rate, latency, application instances, memory, CPU, and restart panels." },
-      { src: "opensearch-logging.svg", title: "OpenSearch logging evidence", description: "OpenSearch Discover filtered to church-prod and document-service logs." }
-    ]
-  }
+  },
 ];
 
 const securityPractices = [
@@ -110,7 +80,7 @@ const securityPractices = [
   "Kubernetes Secrets used for database URLs and JWT secrets in local testing.",
   "No database credentials committed to source control.",
   "Namespace separation for argocd, church-prod, monitoring, and logging.",
-  "Local UI access through port-forward rather than public exposure."
+  "Local UI access through port-forward rather than public exposure.",
 ];
 
 const lessons = [
@@ -119,7 +89,7 @@ const lessons = [
   "Used ECR with Kubernetes imagePullSecrets in a local test cluster.",
   "Built Grafana dashboards for request rate, latency, memory, CPU, pod instances, and restarts.",
   "Used Fluent Bit, OpenSearch, and OpenSearch Dashboards for centralized Kubernetes logging.",
-  "Troubleshot ImagePullBackOff, Argo CD CRD apply errors, DNS/service resolution issues, and wrong kubectl context."
+  "Troubleshot ImagePullBackOff, Argo CD CRD apply errors, DNS/service resolution issues, and wrong kubectl context.",
 ];
 
 const improvements = [
@@ -129,27 +99,8 @@ const improvements = [
   "Add image vulnerability scanning and CI quality gates before pushing production tags.",
   "Implement Horizontal Pod Autoscaler and resource tuning based on Prometheus metrics.",
   "Add alert rules for service downtime, high error rate, high latency, pod restarts, and database failures.",
-  "Build a future AI-assisted monitoring feature using approved OpenSearch queries, incident summaries, and OpenAI-powered remediation suggestions."
+  "Build a future AI-assisted monitoring feature using approved OpenSearch queries, incident summaries, and OpenAI-powered remediation suggestions.",
 ];
-
-function ImageCard({ image }) {
-  return (
-    <figure className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg shadow-slate-200/70">
-      <div className="bg-slate-100">
-        <img
-          src={`${assetBase}${image.src}`}
-          alt={image.title}
-          loading="lazy"
-          className="w-full object-contain"
-        />
-      </div>
-      <figcaption className="border-t border-slate-200 px-5 py-4">
-        <p className="text-sm font-black text-slate-950">{image.title}</p>
-        <p className="mt-1 text-sm leading-6 text-slate-600">{image.description}</p>
-      </figcaption>
-    </figure>
-  );
-}
 
 function BulletList({ items }) {
   return (
@@ -173,11 +124,6 @@ function EvidenceSection({ section }) {
       </div>
       <p className="mt-5 text-base leading-8 text-slate-700">{section.body}</p>
       <BulletList items={section.bullets} />
-      <div className="mt-6 grid gap-6">
-        {section.images.map((image) => (
-          <ImageCard key={image.src} image={image} />
-        ))}
-      </div>
     </section>
   );
 }
@@ -239,20 +185,29 @@ function LocalKubernetesChurchPage() {
 
               <section className="mt-8 rounded-[2rem] border border-amber-200 bg-amber-50 p-7 shadow-xl shadow-amber-100/60 sm:p-9">
                 <p className="text-xs font-black uppercase tracking-[0.3em] text-amber-700">Note</p>
-                <div className="mt-5 grid gap-5 lg:grid-cols-2">
-                  <div className="rounded-2xl border border-amber-200 bg-white p-5">
-                    <h3 className="text-lg font-black text-slate-950">Validated evidence</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-700">
-                      Screenshots show nodes ready, namespaces active, pods running, Argo CD Synced/Healthy, GitHub Actions success, ECR repositories, Grafana metrics, and OpenSearch logs.
-                    </p>
-                  </div>
-                  <div className="rounded-2xl border border-amber-200 bg-white p-5">
-                    <h3 className="text-lg font-black text-slate-950">Job-ready value</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-700">
-                      This demonstrates practical Kubernetes, CI/CD, GitOps, observability, logging, cloud registry, and troubleshooting skills.
-                    </p>
-                  </div>
+                <p className="mt-4 max-w-5xl text-base leading-8 text-slate-800">
+                  Screenshots show nodes ready, namespaces active, pods running, Argo CD Synced/Healthy, GitHub Actions success, ECR repositories, Grafana metrics, and OpenSearch logs. This demonstrates practical Kubernetes, CI/CD, GitOps, observability, logging, cloud registry, and troubleshooting skills.
+                </p>
+              </section>
+
+              <section className="mt-8 rounded-[2rem] border border-slate-200 bg-white p-7 shadow-xl shadow-slate-200/70 sm:p-9">
+                <div className="flex items-center gap-4">
+                  <h2 className="text-2xl font-black text-slate-950">Screenshots</h2>
+                  <div className="h-px flex-1 bg-slate-200" />
                 </div>
+                <p className="mt-5 text-base leading-8 text-slate-700">
+                  Actual screenshot evidence extracted from the validation document: Kubernetes runtime, GitOps, CI/CD, ECR, application UI, Grafana metrics, and OpenSearch logs.
+                </p>
+                <figure className="mt-6 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
+                  <img
+                    src={`${assetBase}actual-screenshot-evidence.svg`}
+                    alt="Actual screenshot evidence for the local Kubernetes church microservices project"
+                    className="w-full object-contain"
+                  />
+                  <figcaption className="border-t border-slate-200 bg-white px-5 py-4 text-sm leading-6 text-slate-600">
+                    Actual screenshots from the local Kubernetes validation run.
+                  </figcaption>
+                </figure>
               </section>
 
               <div className="mt-8 grid gap-6">
