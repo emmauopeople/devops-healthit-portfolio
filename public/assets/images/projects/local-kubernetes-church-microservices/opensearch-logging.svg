@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect width="1200" height="675" fill="#f8fafc"/>
+  <text x="60" y="70" font-family="Arial" font-size="34" font-weight="700" fill="#0f172a">Centralized Logging with Fluent Bit and OpenSearch</text>
+  <text x="60" y="108" font-family="Arial" font-size="18" fill="#475569">OpenSearch Dashboards provides searchable log analysis by time range, namespace, service, route, and Pino log level.</text>
+  <rect x="70" y="155" width="300" height="330" rx="24" fill="#ecfeff" stroke="#0891b2"/>
+  <text x="105" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#155e75">Fluent Bit</text>
+  <text x="105" y="255" font-family="Arial" font-size="17" fill="#0f172a">DaemonSet</text>
+  <text x="105" y="295" font-family="Arial" font-size="17" fill="#0f172a">Collects container logs</text>
+  <text x="105" y="335" font-family="Arial" font-size="17" fill="#0f172a">Adds Kubernetes metadata</text>
+  <text x="105" y="375" font-family="Arial" font-size="17" fill="#0f172a">Ships to OpenSearch</text>
+  <rect x="455" y="155" width="300" height="330" rx="24" fill="#f5f3ff" stroke="#8b5cf6"/>
+  <text x="490" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#5b21b6">OpenSearch</text>
+  <text x="490" y="255" font-family="Arial" font-size="17" fill="#0f172a">kubernetes-YYYY.MM.DD</text>
+  <text x="490" y="295" font-family="Arial" font-size="17" fill="#0f172a">Stores structured logs</text>
+  <text x="490" y="335" font-family="Arial" font-size="17" fill="#0f172a">Searchable indexes</text>
+  <text x="490" y="375" font-family="Arial" font-size="17" fill="#0f172a">Supports time filtering</text>
+  <rect x="840" y="155" width="300" height="330" rx="24" fill="#ffffff" stroke="#cbd5e1"/>
+  <text x="875" y="210" font-family="Arial" font-size="24" font-weight="700" fill="#0f172a">Dashboards</text>
+  <text x="875" y="255" font-family="Arial" font-size="17" fill="#0f172a">namespace: church-prod</text>
+  <text x="875" y="295" font-family="Arial" font-size="17" fill="#0f172a">container: document-service</text>
+  <text x="875" y="335" font-family="Arial" font-size="17" fill="#0f172a">level: 50 for errors</text>
+  <text x="875" y="375" font-family="Arial" font-size="17" fill="#0f172a">route and request search</text>
+  <path d="M370 320 H455" stroke="#7c3aed" stroke-width="5" stroke-dasharray="9 7" marker-end="url(#p)"/>
+  <path d="M755 320 H840" stroke="#7c3aed" stroke-width="5" stroke-dasharray="9 7" marker-end="url(#p)"/>
+  <rect x="70" y="535" width="1068" height="80" rx="20" fill="#dbeafe" stroke="#2563eb"/>
+  <text x="105" y="575" font-family="Arial" font-size="18" font-weight="700" fill="#1e3a8a">Useful filter: kubernetes.namespace_name:&quot;church-prod&quot; AND kubernetes.container_name:&quot;document-service&quot;</text>
+  <text x="105" y="603" font-family="Arial" font-size="16" fill="#1e3a8a">Operational value: centralized logs reduce manual pod-by-pod troubleshooting and help isolate service failures quickly.</text>
+  <defs><marker id="p" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#7c3aed"/></marker></defs>
+</svg>
