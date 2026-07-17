@@ -48,23 +48,6 @@ const productionHardening = [
   "Define log retention and access controls for OpenSearch.",
 ];
 
-const lessons = [
-  "How to connect application CI/CD to GitOps so image builds update Kubernetes deployment state through Git.",
-  "How Argo CD detects Git changes and reconciles workloads to the declared Helm values.",
-  "How to use ECR with Kubernetes imagePullSecrets in a local test cluster.",
-  "How to expose application metrics and build Grafana dashboards for request rate, latency, memory, CPU, and pod restarts.",
-  "How Fluent Bit, OpenSearch, and OpenSearch Dashboards work together for centralized Kubernetes logging.",
-  "How to troubleshoot ImagePullBackOff, Argo CD CRD apply errors, DNS/service resolution issues, and wrong kubectl context.",
-];
-
-const skills = [
-  "Kubernetes Deployments, Services, namespaces, pods, logs, port-forward, readiness troubleshooting.",
-  "Helm reusable chart values, local overrides, and image tag overrides.",
-  "GitOps with Argo CD Application, sync, health, and self-healing deployment model.",
-  "CI/CD with GitHub Actions matrix build, ECR push, and GitOps repo update.",
-  "Observability with Prometheus targets, Grafana dashboards, and OpenSearch log search.",
-];
-
 const improvements = [
   "Deploy the platform on AWS EKS using Terraform-managed VPC, EKS, IAM, IRSA, ACM, Route 53, WAF, ALB, S3, and RDS.",
   "Replace the current OVHcloud PostgreSQL dependency with private Amazon RDS PostgreSQL for the demo environment.",
@@ -311,14 +294,6 @@ function LocalKubernetesChurchPage() {
                       <h3 className="text-lg font-black text-slate-950">Planned Production Hardening</h3>
                       <BulletList items={productionHardening} />
                     </div>
-                  </div>
-                </Section>
-
-                <Section eyebrow="What I Learned" title="What I Learned">
-                  <BulletList items={lessons} />
-                  <div className="mt-6 rounded-2xl border border-sky-100 bg-sky-50 p-5">
-                    <h3 className="text-lg font-black text-slate-950">Technical Skills Demonstrated</h3>
-                    <BulletList items={skills} />
                   </div>
                 </Section>
 
