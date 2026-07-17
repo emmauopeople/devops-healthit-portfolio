@@ -310,13 +310,13 @@ function LocalKubernetesChurchPage() {
                   </div>
                 </Section>
 
-                <section className="rounded-[2rem] border border-slate-200 bg-slate-950 p-7 text-white shadow-xl shadow-slate-200/70 sm:p-9">
-                  <h2 className="text-2xl font-black">Project Links</h2>
+                <section className="rounded-[2rem] border border-sky-200 bg-sky-50 p-7 text-slate-950 shadow-xl shadow-slate-200/70 sm:p-9">
+                  <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
                   <div className="mt-6 flex flex-wrap gap-3">
-                    <a href="https://github.com/emmauopeople/church_app" target="_blank" rel="noreferrer" className="rounded-xl bg-white px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-100">
+                    <a href="https://github.com/emmauopeople/church_app" target="_blank" rel="noreferrer" className="rounded-xl border border-sky-300 bg-white px-4 py-2 text-sm font-black text-blue-700 underline underline-offset-4 transition hover:bg-sky-100 hover:text-blue-900">
                       Application Repository
                     </a>
-                    <a href="https://github.com/emmauopeople/k8s-microservice-cms" target="_blank" rel="noreferrer" className="rounded-xl bg-white px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-100">
+                    <a href="https://github.com/emmauopeople/k8s-microservice-cms" target="_blank" rel="noreferrer" className="rounded-xl border border-sky-300 bg-white px-4 py-2 text-sm font-black text-blue-700 underline underline-offset-4 transition hover:bg-sky-100 hover:text-blue-900">
                       Platform / GitOps Repository
                     </a>
                   </div>
