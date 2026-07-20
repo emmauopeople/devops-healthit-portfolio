@@ -56,27 +56,23 @@ jobs:
           chmod 600 ~/.ssh/linode_deploy_key
           ssh-keyscan -H "${{ secrets.LINODE_HOST }}" >> ~/.ssh/known_hosts
 
-      - name: Copy Docker Compose file to Linode
+      - name: Copy deployment files to Linode
         run: |
+          printf "IMAGE_NAME=%s\nIMAGE_TAG=%s\n" "${IMAGE_NAME}" "${IMAGE_TAG}" > linode.env
           ssh -i ~/.ssh/linode_deploy_key "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}" "mkdir -p '${LINODE_APP_DIR}'"
           scp -i ~/.ssh/linode_deploy_key deploy/linode/docker-compose.yml "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}:${LINODE_APP_DIR}/docker-compose.yml"
+          scp -i ~/.ssh/linode_deploy_key linode.env "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}:${LINODE_APP_DIR}/.env"
 
       - name: Deploy container on Linode
         env:
           GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
           GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
         run: |
-          ssh -i ~/.ssh/linode_deploy_key "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}" << EOF
-            set -e
-            cd '${LINODE_APP_DIR}'
-
-            cat > .env << EOV
-          IMAGE_NAME=${IMAGE_NAME}
-          IMAGE_TAG=${IMAGE_TAG}
-          EOV
-
-            echo "${GHCR_TOKEN}" | docker login ghcr.io -u "${GHCR_USERNAME}" --password-stdin
-            docker compose pull
-            docker compose up -d --remove-orphans
-            docker image prune -f
-          EOF
+          ssh -i ~/.ssh/linode_deploy_key "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}" "GHCR_USERNAME='${GHCR_USERNAME}' GHCR_TOKEN='${GHCR_TOKEN}' LINODE_APP_DIR='${LINODE_APP_DIR}' bash -s" <<'REMOTE'
+          set -e
+          cd "$LINODE_APP_DIR"
+          echo "$GHCR_TOKEN" | docker login ghcr.io -u "$GHCR_USERNAME" --password-stdin
+          docker compose pull
+          docker compose up -d --remove-orphans
+          docker image prune -f
+          REMOTE
