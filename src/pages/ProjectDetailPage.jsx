@@ -228,6 +228,35 @@ function CaseStudySection({ project, section }) {
   );
 }
 
+function ProjectLinksSection({ isChurchManagement, projectLinks }) {
+  if (!projectLinks.length) return null;
+
+  return (
+    <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
+      <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
+      {isChurchManagement && (
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
+          Local Kubernetes church app project evidence: the live Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/EKS page documents the planned infrastructure migration target.
+        </p>
+      )}
+      <div className="mt-5 flex flex-wrap gap-3">
+        {projectLinks.map(({ label, href }) => (
+          <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-sky-300 hover:text-sky-700">
+            {label}
+          </a>
+        ))}
+      </div>
+      {isChurchManagement && (
+        <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
+          <p className="font-black text-slate-950">Recruiter demo credentials</p>
+          <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
+          <p><span className="font-bold">Password:</span> recruiter2026</p>
+        </div>
+      )}
+    </section>
+  );
+}
+
 function ProjectDetailPage() {
   const { slug } = useParams();
   const activeSlug = slug || projects[0]?.slug;
@@ -255,7 +284,7 @@ function ProjectDetailPage() {
     ? "mt-4 max-w-4xl text-base font-semibold leading-7 text-sky-800 sm:text-lg"
     : "mt-4 max-w-4xl text-lg font-bold leading-8 text-sky-800 sm:text-xl";
   const heroTitleClass = isChurchManagement
-    ? "text-2xl font-black tracking-tight text-slate-950 sm:text-3xl lg:text-4xl"
+    ? "text-xl font-black tracking-tight text-slate-950 sm:text-2xl lg:text-3xl"
     : "text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
@@ -294,36 +323,13 @@ function ProjectDetailPage() {
                 )}
               </header>
 
+              <ProjectLinksSection isChurchManagement={isChurchManagement} projectLinks={projectLinks} />
+
               <div className="mt-8 grid gap-6">
                 {sectionOrder.map((section) => (
                   <CaseStudySection key={section.key} project={project} section={section} />
                 ))}
               </div>
-
-              {projectLinks.length > 0 && (
-                <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
-                  <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
-                  {isChurchManagement && (
-                    <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
-                      The live church app runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/EKS project documents the planned migration target.
-                    </p>
-                  )}
-                  <div className="mt-5 flex flex-wrap gap-3">
-                    {projectLinks.map(({ label, href }) => (
-                      <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-sky-300 hover:text-sky-700">
-                        {label}
-                      </a>
-                    ))}
-                  </div>
-                  {isChurchManagement && (
-                    <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
-                      <p className="font-black text-slate-950">Recruiter demo credentials</p>
-                      <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
-                      <p><span className="font-bold">Password:</span> recruiter2026</p>
-                    </div>
-                  )}
-                </section>
-              )}
             </article>
           </Container>
         </main>
