@@ -32,8 +32,8 @@ const sectionOrder = [
   { key: "lessons", title: "Lessons Learned", type: "list" },
 ];
 
-const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
 const churchAppUrl = "https://www.gestionparoissiale.org";
+const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
 
 function projectSearchText(project) {
   return [
@@ -57,10 +57,13 @@ function referencesChurch(project) {
 
 function isLocalKubernetesChurchAppProject(project) {
   const text = projectSearchText(project);
-  const hasLocalKubernetes = text.includes("local kubernetes") || text.includes("local k8s") || (text.includes("local") && (text.includes("kubernetes") || text.includes("k8s")));
-  const hasDevOpsSignals = text.includes("gitops") || text.includes("ci/cd") || text.includes("monitoring") || text.includes("logging");
+  const hasLocalKubernetes =
+    text.includes("local kubernetes") ||
+    text.includes("local-kubernetes") ||
+    text.includes("local k8s") ||
+    (text.includes("local") && (text.includes("kubernetes") || text.includes("k8s")));
 
-  return hasLocalKubernetes && (referencesChurch(project) || hasDevOpsSignals);
+  return hasLocalKubernetes;
 }
 
 function isChurchEksProject(project) {
@@ -72,7 +75,11 @@ function isChurchEksProject(project) {
 
 function isAnyChurchKubernetesProject(project) {
   const text = projectSearchText(project);
-  return isLocalKubernetesChurchAppProject(project) || isChurchEksProject(project) || (referencesChurch(project) && (text.includes("kubernetes") || text.includes("k8s") || text.includes("gitops")));
+  return (
+    isLocalKubernetesChurchAppProject(project) ||
+    isChurchEksProject(project) ||
+    (referencesChurch(project) && (text.includes("kubernetes") || text.includes("k8s") || text.includes("gitops")))
+  );
 }
 
 function renderPlainTextWithUrls(text, keyPrefix) {
@@ -271,7 +278,7 @@ function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
       <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
       {showChurchAppDemo && (
         <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
-          Local Kubernetes church app project evidence: the live Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/GitOps/CI/CD project documents the local Kubernetes deployment, monitoring, and logging direction.
+          Live software demo for this Local Kubernetes church app project: the Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills.
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-3">
@@ -282,7 +289,7 @@ function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
         ))}
       </div>
       {showChurchAppDemo && (
-        <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
+        <div className="mt-5 rounded-2xl border border-sky-200 bg-white p-4 text-sm leading-6 text-slate-700">
           <p className="font-black text-slate-950">Recruiter demo credentials</p>
           <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
           <p><span className="font-bold">Password:</span> recruiter2026</p>
