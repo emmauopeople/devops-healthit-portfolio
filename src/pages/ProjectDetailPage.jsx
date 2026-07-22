@@ -33,6 +33,7 @@ const sectionOrder = [
 ];
 
 const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
+const churchAppUrl = "https://www.gestionparoissiale.org";
 
 function renderPlainTextWithUrls(text, keyPrefix) {
   return String(text)
@@ -159,10 +160,19 @@ function SectionDetailList({ title, items }) {
   );
 }
 
+function isChurchKubernetesProject(project) {
+  const projectSearchText = `${project.slug || ""} ${project.name || ""} ${project.shortName || ""} ${project.category || ""} ${project.summary || ""} ${project.focus?.join(" ") || ""}`.toLowerCase();
+  const referencesChurch = projectSearchText.includes("church") || projectSearchText.includes("parish") || projectSearchText.includes("paroissiale");
+  const referencesLocalKubernetes = projectSearchText.includes("local kubernetes") || (projectSearchText.includes("local") && (projectSearchText.includes("kubernetes") || projectSearchText.includes("k8s")));
+  const referencesKubernetesChurch = referencesChurch && (projectSearchText.includes("kubernetes") || projectSearchText.includes("k8s") || projectSearchText.includes("gitops"));
+
+  return referencesLocalKubernetes || referencesKubernetesChurch;
+}
+
 function ArchitectureStack({ project, sectionKey }) {
   if (
     sectionKey !== "architecture" ||
-    project.slug === "church-management-kubernetes" ||
+    isChurchKubernetesProject(project) ||
     !project.stack?.length
   ) {
     return null;
@@ -187,7 +197,7 @@ function CaseStudySection({ project, section }) {
   const images = project.sectionImages?.[section.key];
   const detailTitle = project[`${section.key}DetailsTitle`];
   const detailItems = project[`${section.key}Details`];
-  const sectionTitle = section.key === "architecture" && project.slug === "church-management-kubernetes"
+  const sectionTitle = section.key === "architecture" && isChurchKubernetesProject(project)
     ? "Application Architecture"
     : section.title;
 
@@ -228,15 +238,15 @@ function CaseStudySection({ project, section }) {
   );
 }
 
-function ProjectLinksSection({ isChurchManagement, projectLinks }) {
+function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
   if (!projectLinks.length) return null;
 
   return (
     <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
       <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
-      {isChurchManagement && (
+      {showChurchAppDemo && (
         <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
-          Local Kubernetes church app project evidence: the live Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/EKS page documents the planned infrastructure migration target.
+          Local Kubernetes church app project evidence: the live Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/GitOps/CI/CD project documents the local Kubernetes deployment, monitoring, and logging direction.
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-3">
@@ -246,7 +256,7 @@ function ProjectLinksSection({ isChurchManagement, projectLinks }) {
           </a>
         ))}
       </div>
-      {isChurchManagement && (
+      {showChurchAppDemo && (
         <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
           <p className="font-black text-slate-950">Recruiter demo credentials</p>
           <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
@@ -277,20 +287,22 @@ function ProjectDetailPage() {
   }
 
   const isOneCommunity = project.slug === "one-community-docker-compose";
-  const isChurchManagement = project.slug === "church-management-kubernetes";
+  const showChurchAppDemo = isChurchKubernetesProject(project);
   const heroTitle = isOneCommunity ? "One Community" : project.name;
   const heroSubtitle = isOneCommunity ? "Skill visibility and data platform." : String(project.summary || "").replace(/^In Progress -\s*/, "");
-  const heroSubtitleClass = isChurchManagement
+  const heroSubtitleClass = showChurchAppDemo
     ? "mt-4 max-w-4xl text-base font-semibold leading-7 text-sky-800 sm:text-lg"
     : "mt-4 max-w-4xl text-lg font-bold leading-8 text-sky-800 sm:text-xl";
-  const heroTitleClass = isChurchManagement
+  const heroTitleClass = showChurchAppDemo
     ? "text-xl font-black tracking-tight text-slate-950 sm:text-2xl lg:text-3xl"
     : "text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
+  const baseProjectLinks = Object.entries(project.links || {}).map(([label, href]) => ({ label, href }));
+  const hasChurchAppLink = baseProjectLinks.some(({ href }) => href === churchAppUrl);
   const projectLinks = [
-    ...Object.entries(project.links || {}).map(([label, href]) => ({ label, href })),
-    ...(isChurchManagement ? [{ label: "Church App Live Link", href: "https://www.gestionparoissiale.org" }] : []),
+    ...baseProjectLinks,
+    ...(showChurchAppDemo && !hasChurchAppLink ? [{ label: "Church App Live Link", href: churchAppUrl }] : []),
   ];
 
   return (
@@ -303,7 +315,7 @@ function ProjectDetailPage() {
             <article>
               <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
                 <h1 className={heroTitleClass}>{heroTitle}</h1>
-                {isChurchManagement && (
+                {showChurchAppDemo && (
                   <p className="mt-4 inline-flex rounded-xl border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-black text-sky-800 shadow-sm">
                     this project is in progress
                   </p>
@@ -323,7 +335,7 @@ function ProjectDetailPage() {
                 )}
               </header>
 
-              <ProjectLinksSection isChurchManagement={isChurchManagement} projectLinks={projectLinks} />
+              <ProjectLinksSection showChurchAppDemo={showChurchAppDemo} projectLinks={projectLinks} />
 
               <div className="mt-8 grid gap-6">
                 {sectionOrder.map((section) => (
