@@ -33,7 +33,6 @@ const sectionOrder = [
 ];
 
 const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
-const inProgressNotice = "this project is in progress, these are place holders";
 
 function renderPlainTextWithUrls(text, keyPrefix) {
   return String(text)
@@ -251,12 +250,16 @@ function ProjectDetailPage() {
   const isOneCommunity = project.slug === "one-community-docker-compose";
   const isChurchManagement = project.slug === "church-management-kubernetes";
   const heroTitle = isOneCommunity ? "One Community" : project.name;
-  const heroSubtitle = isOneCommunity ? "Skill visibility and data platform." : project.summary;
+  const heroSubtitle = isOneCommunity ? "Skill visibility and data platform." : String(project.summary || "").replace(/^In Progress -\s*/, "");
   const heroSubtitleClass = isChurchManagement
     ? "mt-4 max-w-4xl text-base font-semibold leading-7 text-sky-800 sm:text-lg"
-    : "mt-4 max-w-4xl text-xl font-bold leading-8 text-sky-800 sm:text-2xl";
+    : "mt-4 max-w-4xl text-lg font-bold leading-8 text-sky-800 sm:text-xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
+  const projectLinks = [
+    ...Object.entries(project.links || {}).map(([label, href]) => ({ label, href })),
+    ...(isChurchManagement ? [{ label: "Live Docker Swarm App", href: "https://www.gestionparoissiale.org" }] : []),
+  ];
 
   return (
     <section className="h-[calc(100vh-4rem)] overflow-hidden bg-slate-50">
@@ -267,12 +270,7 @@ function ProjectDetailPage() {
           <Container>
             <article>
               <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
-                <h1 className="text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">{heroTitle}</h1>
-                {!isOneCommunity && (
-                  <p className="mt-4 inline-flex rounded-xl border border-yellow-300 bg-yellow-100 px-4 py-2 text-sm font-black text-yellow-900 shadow-sm">
-                    {inProgressNotice}
-                  </p>
-                )}
+                <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">{heroTitle}</h1>
                 <p className={heroSubtitleClass}>{heroSubtitle}</p>
                 <p className="mt-3 max-w-4xl text-base font-semibold leading-7 text-slate-700 sm:text-lg">{heroDeployment}</p>
 
@@ -294,16 +292,28 @@ function ProjectDetailPage() {
                 ))}
               </div>
 
-              {project.links && (
+              {projectLinks.length > 0 && (
                 <section className="mt-8 rounded-[2rem] border border-slate-200 bg-slate-50 p-7 shadow-xl shadow-slate-200/70 sm:p-9">
                   <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
+                  {isChurchManagement && (
+                    <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
+                      Current live software-development evidence: the church application is running in the cloud on Docker Swarm, while the Kubernetes/EKS deployment remains the planned infrastructure migration target.
+                    </p>
+                  )}
                   <div className="mt-5 flex flex-wrap gap-3">
-                    {Object.entries(project.links).map(([label, href]) => (
+                    {projectLinks.map(({ label, href }) => (
                       <a key={label} href={href} target="_blank" rel="noreferrer" className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 transition hover:border-sky-300 hover:text-sky-700">
                         {label}
                       </a>
                     ))}
                   </div>
+                  {isChurchManagement && (
+                    <div className="mt-5 rounded-2xl border border-slate-200 bg-white p-4 text-sm leading-6 text-slate-700">
+                      <p className="font-black text-slate-950">Recruiter demo credentials</p>
+                      <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
+                      <p><span className="font-bold">Password:</span> recruiter2026</p>
+                    </div>
+                  )}
                 </section>
               )}
             </article>
