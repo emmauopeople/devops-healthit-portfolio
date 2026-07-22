@@ -254,11 +254,14 @@ function ProjectDetailPage() {
   const heroSubtitleClass = isChurchManagement
     ? "mt-4 max-w-4xl text-base font-semibold leading-7 text-sky-800 sm:text-lg"
     : "mt-4 max-w-4xl text-lg font-bold leading-8 text-sky-800 sm:text-xl";
+  const heroTitleClass = isChurchManagement
+    ? "text-2xl font-black tracking-tight text-slate-950 sm:text-3xl lg:text-4xl"
+    : "text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
   const liveLink = isOneCommunity ? project.links?.publicSite : null;
   const projectLinks = [
     ...Object.entries(project.links || {}).map(([label, href]) => ({ label, href })),
-    ...(isChurchManagement ? [{ label: "Live Docker Swarm App", href: "https://www.gestionparoissiale.org" }] : []),
+    ...(isChurchManagement ? [{ label: "Church App Live Link", href: "https://www.gestionparoissiale.org" }] : []),
   ];
 
   return (
@@ -270,7 +273,12 @@ function ProjectDetailPage() {
           <Container>
             <article>
               <header className="relative rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 pb-24 shadow-xl shadow-slate-200/70 sm:p-10 sm:pb-24">
-                <h1 className="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl">{heroTitle}</h1>
+                <h1 className={heroTitleClass}>{heroTitle}</h1>
+                {isChurchManagement && (
+                  <p className="mt-4 inline-flex rounded-xl border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-black text-sky-800 shadow-sm">
+                    this project is in progress
+                  </p>
+                )}
                 <p className={heroSubtitleClass}>{heroSubtitle}</p>
                 <p className="mt-3 max-w-4xl text-base font-semibold leading-7 text-slate-700 sm:text-lg">{heroDeployment}</p>
 
@@ -297,7 +305,7 @@ function ProjectDetailPage() {
                   <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
                   {isChurchManagement && (
                     <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
-                      Current live software-development evidence: the church application is running in the cloud on Docker Swarm, while the Kubernetes/EKS deployment remains the planned infrastructure migration target.
+                      The live church app runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills. This Kubernetes/EKS project documents the planned migration target.
                     </p>
                   )}
                   <div className="mt-5 flex flex-wrap gap-3">
