@@ -151,7 +151,7 @@ function LocalKubernetesChurchPage() {
             <article>
               <header className="relative overflow-hidden rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.35em] text-sky-700">Completed local platform validation</p>
-                <h1 className="mt-4 text-4xl font-black tracking-tight text-slate-950 sm:text-6xl">
+                <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
                   Local Kubernetes Church Microservices Platform
                 </h1>
                 <p className="mt-5 max-w-5xl text-lg font-semibold leading-8 text-sky-900 sm:text-2xl">
@@ -224,6 +224,16 @@ function LocalKubernetesChurchPage() {
                   <p className="mt-4 max-w-4xl text-base leading-8 text-slate-200">
                     This project demonstrates both application deployment and platform operations: containerization, CI/CD, GitOps, Kubernetes, cloud registry, observability, logging, and practical troubleshooting. It is ready to present as a DevOps, cloud, Kubernetes, platform engineering, or Health IT infrastructure portfolio project.
                   </p>
+                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/10 p-5">
+                    <p className="text-sm font-black uppercase tracking-[0.25em] text-sky-200">Live Demo Access</p>
+                    <a href="https://www.gestionparoissiale.org" target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-xl bg-sky-300 px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-200">
+                      Open gestionparoissiale.org
+                    </a>
+                    <div className="mt-4 grid gap-2 text-sm font-semibold text-slate-200 sm:grid-cols-2">
+                      <p>Username: <span className="font-black text-white">recruiter@gmail.com</span></p>
+                      <p>Password: <span className="font-black text-white">recruiter2026</span></p>
+                    </div>
+                  </div>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a href="https://github.com/emmauopeople/church_app" target="_blank" rel="noreferrer" className="rounded-xl bg-white px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-100">
                       Application Repository
