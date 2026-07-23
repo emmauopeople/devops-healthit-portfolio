@@ -109,7 +109,6 @@ function LocalKubernetesChurchPage() {
         <main className="min-w-0 overflow-y-auto py-10 lg:py-12">
           <Container>
             <article>
-<<<<<<< HEAD
               <header className="relative overflow-hidden rounded-[2rem] border border-sky-100 bg-gradient-to-r from-sky-50 via-white to-slate-50 p-8 shadow-xl shadow-slate-200/70 sm:p-10">
                 <p className="text-sm font-black uppercase tracking-[0.35em] text-sky-700">Completed local platform validation</p>
                 <h1 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-5xl">
@@ -124,17 +123,6 @@ function LocalKubernetesChurchPage() {
                       {item}
                     </span>
                   ))}
-=======
-              <header className="overflow-hidden rounded-[2rem] bg-slate-950 shadow-xl shadow-slate-300/70">
-                <div className="p-8 text-white sm:p-12">
-                  <p className="text-sm font-black uppercase tracking-[0.35em] text-sky-200">Church App DevOps Portfolio</p>
-                  <h1 className="mt-4 max-w-5xl text-4xl font-black tracking-tight sm:text-6xl">
-                    Local Kubernetes, GitOps, CI/CD, Monitoring and Logging
-                  </h1>
-                  <p className="mt-5 max-w-4xl text-lg font-semibold leading-8 text-slate-200 sm:text-2xl">
-                    A production-style platform implementation tested locally before AWS EKS deployment.
-                  </p>
->>>>>>> 26779ca00b81a9f039623b8a5d4ff48c37d95ff8
                 </div>
               </header>
 
@@ -225,18 +213,6 @@ function LocalKubernetesChurchPage() {
                   <p className="mt-5 text-base leading-8 text-slate-700">
                     The platform repository is the deployment source of truth. Argo CD watches the Helm chart and values files, then reconciles the local Kubernetes cluster to match Git. The local application is tracked as church-app-local and deploys into the church-prod namespace.
                   </p>
-<<<<<<< HEAD
-                  <div className="mt-6 rounded-2xl border border-white/10 bg-white/10 p-5">
-                    <p className="text-sm font-black uppercase tracking-[0.25em] text-sky-200">Live Demo Access</p>
-                    <a href="https://www.gestionparoissiale.org" target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-xl bg-sky-300 px-4 py-2 text-sm font-black text-slate-950 transition hover:bg-sky-200">
-                      Open gestionparoissiale.org
-                    </a>
-                    <div className="mt-4 grid gap-2 text-sm font-semibold text-slate-200 sm:grid-cols-2">
-                      <p>Username: <span className="font-black text-white">recruiter@gmail.com</span></p>
-                      <p>Password: <span className="font-black text-white">recruiter2026</span></p>
-                    </div>
-                  </div>
-=======
                   <div className="mt-6 grid gap-6 lg:grid-cols-2">
                     <ImageCard src="05-argocd-synced-healthy-cli.png" title="GitOps evidence" caption="kubectl reports church-app-local as Synced and Healthy." />
                     <ImageCard src="06-values-image-tags.png" title="Image tag state" caption="values-image-tags.yaml updated by GitHub Actions." />
@@ -341,7 +317,16 @@ function LocalKubernetesChurchPage() {
 
                 <section className="rounded-[2rem] border border-sky-200 bg-sky-50 p-7 text-slate-950 shadow-xl shadow-slate-200/70 sm:p-9">
                   <h2 className="text-2xl font-black text-slate-950">Project Links</h2>
->>>>>>> 26779ca00b81a9f039623b8a5d4ff48c37d95ff8
+                  <div className="mt-6 rounded-2xl border border-sky-200 bg-white p-5">
+                    <p className="text-sm font-black uppercase tracking-[0.25em] text-sky-700">Live Demo Access</p>
+                    <a href="https://www.gestionparoissiale.org" target="_blank" rel="noreferrer" className="mt-3 inline-flex rounded-xl bg-sky-700 px-4 py-2 text-sm font-black text-white transition hover:bg-sky-800">
+                      Open gestionparoissiale.org
+                    </a>
+                    <div className="mt-4 grid gap-2 text-sm font-semibold text-slate-700 sm:grid-cols-2">
+                      <p>Username: <span className="font-black text-slate-950">recruiter@gmail.com</span></p>
+                      <p>Password: <span className="font-black text-slate-950">recruiter2026</span></p>
+                    </div>
+                  </div>
                   <div className="mt-6 flex flex-wrap gap-3">
                     <a href="https://github.com/emmauopeople/church_app" target="_blank" rel="noreferrer" className="rounded-xl border border-sky-300 bg-white px-4 py-2 text-sm font-black text-blue-700 underline underline-offset-4 transition hover:bg-sky-100 hover:text-blue-900">
                       Application Repository
