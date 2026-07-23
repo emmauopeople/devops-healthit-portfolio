@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  base: "/devops-healthit-portfolio/",
+  base: process.env.VITE_BASE_PATH ?? "/devops-healthit-portfolio/",
   plugins: [react(), tailwindcss()],
 });
