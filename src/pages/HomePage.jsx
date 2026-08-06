@@ -90,7 +90,7 @@ function FeaturedProjectCard({ project }) {
 
 function FeaturedProjectsSection() {
   return (
-    <section className="py-18 sm:py-20">
+    <section className="py-16 sm:py-20">
       <Container>
         <div className="mb-10 max-w-4xl">
           <p className="text-sm font-black uppercase tracking-[0.35em] text-sky-700">Featured Projects</p>
