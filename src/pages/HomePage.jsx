@@ -31,7 +31,7 @@ const featuredProjects = [
       "Production Docker Compose deployment with NGINX, HTTPS, PostgreSQL, object storage, Prometheus, Grafana, and backup automation.",
     tags: ["Docker", "NGINX", "PostgreSQL", "Prometheus", "Grafana"],
     liveLabel: "Live Site",
-    liveUrl: "https://www.cameroonskills.org",
+    liveUrl: "https://servicecam.org",
   },
   {
     title: "Health Screening / FHIR Planning",
@@ -46,11 +46,10 @@ const featuredProjects = [
 const quickLinks = [
   { label: "Projects", href: "/projects", internal: true },
   { label: "Resume", href: "/resume", internal: true },
-  { label: "One Community", href: "https://www.cameroonskills.org" },
+  { label: "One Community", href: "https://servicecam.org" },
   {
     label: "One Community Admin",
-    href: "https://admin.cameroonskills.org",
-    note: "Contact me to get login credentials.",
+    href: "https://admin.servicecam.org",
   },
   { label: "GitHub", href: "https://github.com/emmauopeople" },
 ];
