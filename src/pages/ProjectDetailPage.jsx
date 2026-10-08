@@ -33,6 +33,8 @@ const sectionOrder = [
 ];
 
 const churchAppUrl = "https://www.gestionparoissiale.org";
+const oneCommunityPublicUrl = "https://servicecam.org";
+const oneCommunityAdminUrl = "https://admin.servicecam.org";
 const linkClass = "font-black !text-blue-600 underline underline-offset-4 decoration-blue-600 hover:!text-blue-800 hover:decoration-blue-800";
 
 function projectSearchText(project) {
@@ -270,7 +272,7 @@ function CaseStudySection({ project, section }) {
   );
 }
 
-function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
+function ProjectLinksSection({ showChurchAppDemo, showOneCommunityCredentials, projectLinks }) {
   if (!projectLinks.length) return null;
 
   return (
@@ -279,6 +281,11 @@ function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
       {showChurchAppDemo && (
         <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
           Live software demo for this Local Kubernetes church app project: the Church Management application currently runs on Docker Swarm on OVHcloud and is included here to demonstrate software development skills.
+        </p>
+      )}
+      {showOneCommunityCredentials && (
+        <p className="mt-3 max-w-4xl text-sm leading-6 text-slate-600">
+          One Community production platform links have moved to servicecam.org and admin.servicecam.org.
         </p>
       )}
       <div className="mt-5 flex flex-wrap gap-3">
@@ -293,6 +300,13 @@ function ProjectLinksSection({ showChurchAppDemo, projectLinks }) {
           <p className="font-black text-slate-950">Recruiter demo credentials</p>
           <p className="mt-2"><span className="font-bold">Username:</span> recruiter@gmail.com</p>
           <p><span className="font-bold">Password:</span> recruiter2026</p>
+        </div>
+      )}
+      {showOneCommunityCredentials && (
+        <div className="mt-5 rounded-2xl border border-sky-200 bg-white p-4 text-sm leading-6 text-slate-700">
+          <p className="font-black text-slate-950">Admin portal demo credentials</p>
+          <p className="mt-2"><span className="font-bold">Username:</span> recruter@example.test</p>
+          <p><span className="font-bold">Password:</span> test123*</p>
         </div>
       )}
     </section>
@@ -330,8 +344,18 @@ function ProjectDetailPage() {
     ? "text-xl font-black tracking-tight text-slate-950 sm:text-2xl lg:text-3xl"
     : "text-3xl font-black tracking-tight text-slate-950 sm:text-4xl lg:text-5xl";
   const heroDeployment = isOneCommunity ? "Deployed with Docker Compose." : project.status;
-  const liveLink = isOneCommunity ? project.links?.publicSite : null;
-  const baseProjectLinks = Object.entries(project.links || {}).map(([label, href]) => ({ label, href }));
+  const liveLink = isOneCommunity ? oneCommunityPublicUrl : null;
+  const baseProjectLinks = Object.entries(project.links || {}).map(([label, href]) => {
+    if (isOneCommunity && label === "publicSite") {
+      return { label, href: oneCommunityPublicUrl };
+    }
+
+    if (isOneCommunity && label === "adminPortal") {
+      return { label, href: oneCommunityAdminUrl };
+    }
+
+    return { label, href };
+  });
   const hasChurchAppLink = baseProjectLinks.some(({ href }) => href === churchAppUrl);
   const projectLinks = [
     ...baseProjectLinks,
@@ -368,7 +392,7 @@ function ProjectDetailPage() {
                 )}
               </header>
 
-              <ProjectLinksSection showChurchAppDemo={showChurchAppDemo} projectLinks={projectLinks} />
+              <ProjectLinksSection showChurchAppDemo={showChurchAppDemo} showOneCommunityCredentials={isOneCommunity} projectLinks={projectLinks} />
 
               <div className="mt-8 grid gap-6">
                 {sectionOrder.map((section) => (
