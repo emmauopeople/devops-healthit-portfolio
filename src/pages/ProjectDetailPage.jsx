@@ -129,6 +129,18 @@ function LinkedText({ text }) {
   return output;
 }
 
+function normalizeTextForProject(project, text) {
+  const source = String(text);
+
+  if (project.slug !== "one-community-docker-compose") {
+    return source;
+  }
+
+  return source
+    .replaceAll("https://www.cameroonskills.org", oneCommunityPublicUrl)
+    .replaceAll("https://admin.cameroonskills.org", oneCommunityAdminUrl);
+}
+
 function ProjectImage({ image, fallbackTitle, compact = false }) {
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -244,13 +256,14 @@ function CaseStudySection({ project, section }) {
         <div className="h-px flex-1 bg-slate-200" />
       </div>
 
-      {section.type === "text" && content && <p className="mt-5 text-base leading-8 text-slate-700"><LinkedText text={content} /></p>}
+      {section.type === "text" && content && <p className="mt-5 text-base leading-8 text-slate-700"><LinkedText text={normalizeTextForProject(project, content)} /></p>}
       <SectionDetailList title={detailTitle} items={detailItems} />
 
       {section.type === "list" && Array.isArray(content) && (
         <ul className="mt-5 grid gap-3">
           {content.map((item) => {
-            const itemText = typeof item === "string" ? item : item.text;
+            const rawItemText = typeof item === "string" ? item : item.text;
+            const itemText = normalizeTextForProject(project, rawItemText);
             const itemImages = typeof item === "string" ? null : item.images;
 
             return (
