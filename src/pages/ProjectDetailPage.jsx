@@ -171,6 +171,11 @@ function ProjectImage({ image, fallbackTitle, compact = false }) {
       <figcaption className="border-t border-slate-200 bg-white px-5 py-4">
         <p className="text-sm font-black text-slate-900">{image.title || fallbackTitle}</p>
         {image.description && <p className="mt-1 text-sm leading-6 text-slate-600">{image.description}</p>}
+        {image.fullSizeLink && (
+          <a href={`${import.meta.env.BASE_URL}${image.src.replace(/^\//, "")}`} target="_blank" rel="noreferrer" className="mt-3 inline-block text-sm font-bold text-sky-700 underline underline-offset-4">
+            Open full-size screenshot
+          </a>
+        )}
       </figcaption>
     </figure>
   );
