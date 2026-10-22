@@ -5,6 +5,14 @@ const webFiles = webSnapshot.replace("/tree/", "/blob/");
 const desktopFiles = `${desktop}/blob/fe4e6c7cf8096c0b574673bc86b8a0f30b67c350`;
 const desktopSnapshot = `${desktop}/tree/fe4e6c7cf8096c0b574673bc86b8a0f30b67c350`;
 
+const screenshot = (file, title, description, layout = "full") => ({
+  title,
+  description: `${description} Captured October 22, 2026 from the documented release using synthetic browser fixtures and intercepted API responses; this is UI evidence, not a live patient record or an independent backend acceptance result.`,
+  src: `/assets/images/projects/chs-offline-desktop-web-fhir/${file}.jpg`,
+  layout,
+  fullSizeLink: true
+});
+
 export const chsImplementation = {
   slug: "chs-offline-desktop-web-fhir",
   name: "CHS — Offline Desktop, Central Operations and Private FHIR",
@@ -91,7 +99,7 @@ export const chsImplementation = {
     "Desktop pnpm verify passed formatting, lint, both TypeScript projects and 2,175 tests for the 1.0.2 candidate. Installer creation remained blocked at the required packaged runtime check.",
     "The PC pilot's portal/API/authentication routing and private FHIR publication were verified at delivery. These are dated deployment observations, not an uptime promise for the current day.",
     "User-reported laptop synchronization succeeded. Automated multi-installation coverage passed, but formal physical two-PC acceptance with the new installer remains unexecuted; the user report does not close that gate.",
-    "Recruiters can inspect source, merged PRs, architecture and acceptance procedures without receiving health data or production credentials."
+    "Recruiters can inspect source, merged PRs, architecture and acceptance procedures without receiving health data or production credentials. Screenshot galleries use synthetic local browser fixtures; they do not establish live authentication, backend correctness or packaged Windows execution."
   ],
   immediateNextSteps: [
     "Make administrator approval effective under the enforced Windows signing/application-control policy, rerun the mandatory probe on the preserved candidate and complete NSIS packaging. Record the final installer hash and source revision.",
@@ -108,6 +116,21 @@ export const chsImplementation = {
     "Pilot service isolation supports coexistence, but shared hardware and single-host availability still need deliberate operational ownership."
   ],
   sectionImages: {
+    functionalScope: [
+      screenshot("patient-timeline", "Synthetic patient review and identity assurance", "The central patient viewer shows a fictional patient, canonical identifier and identity-review notice."),
+      screenshot("screening-history", "Synthetic screening history and recorded vitals", "The same fixture demonstrates the screening-history view, recorded vitals and source context.")
+    ],
+    dataFlow: [
+      screenshot("desktop-enrollment", "Web enrollment for another desktop installation", "The CHS-web form associates a sample installation UUID with its central location. Capture occurs before credential generation; no token is visible. This is the web administration screen, not the native desktop application.")
+    ],
+    security: [
+      screenshot("accounts-permissions", "Organization-scoped account administration", "A super-admin workflow selects a sample admin role and organization before account creation. No temporary password or real account credential is shown.")
+    ],
+    fhirInteroperability: [
+      screenshot("fhir-patient", "FHIR-only workspace: synthetic Patient resource", "The implemented viewer displays a synthetic Patient resource with name and birth-date search fields and a mapped resource list."),
+      screenshot("fhir-encounter", "Synthetic Encounter mapping and POST request", "The Encounter example shows its Patient reference, resource-type selection and POST JSON request body without an authorization token."),
+      screenshot("fhir-mobile", "FHIR viewer on a narrow screen", "The same synthetic Encounter and POST example are shown at a mobile viewport width.", "phone")
+    ],
     architecture: [{
       title: "CHS PC pilot architecture",
       description: "Implemented service boundaries at the October 20 snapshot. Arrows show application traffic and publication; they do not represent public database access. OVHcloud is a future hosting move.",

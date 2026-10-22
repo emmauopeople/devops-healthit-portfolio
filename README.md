@@ -22,6 +22,8 @@ The site is currently hosted at https://mbimunyui.shop. The implementation case 
 
 The case distinguishes the deployed PC pilot and completed automated checks from the blocked desktop 1.0.2 installer, physical two-PC acceptance and future OVHcloud/doctor/AI work. Evidence is pinned to the October 20, 2026 source snapshots; documentation was prepared October 22. It is not a new uptime or production-readiness assessment.
 
+The CHS case includes seven reviewed synthetic UI captures, grouped under functional scope, data flow, security and FHIR interoperability. Each offers a full-size image link. Capture provenance and hashes are recorded in `public/assets/images/projects/chs-offline-desktop-web-fhir/screenshots.json`. The screenshots are browser-fixture UI demonstrations, not live patient records, native desktop captures or additional backend acceptance results.
+
 Do not add credentials, real patient screenshots, private deployment files or database dumps. Add screenshots only from reviewed synthetic fixtures. Both deployment workflows run on pushes to `main`; review the pull request before merging because that can update the live portfolio.
 
 ## Other Featured Project

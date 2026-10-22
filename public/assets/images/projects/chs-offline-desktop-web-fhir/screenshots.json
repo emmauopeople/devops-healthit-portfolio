@@ -1,0 +1,56 @@
+{
+  "capturedOn": "2026-10-22",
+  "sourceRepository": "https://github.com/emmauopeople/CHS-web",
+  "sourceCommit": "547374409d1cbd9e7fa745a55d1ae93668c39e6b",
+  "captureMode": "Isolated source snapshot; local browser; synthetic fixtures; intercepted API responses",
+  "fixtureTests": [
+    "accounts.pw.ts",
+    "desktop-installations.pw.ts",
+    "patient-viewer.pw.ts",
+    "fhir-viewer.pw.ts"
+  ],
+  "visibleLabel": "SYNTHETIC DATA - LOCAL BROWSER FIXTURE",
+  "review": "Reviewed for patient information and credentials; all displayed identities and identifiers originate in synthetic fixtures. Credential displays are not captured.",
+  "limitations": [
+    "UI demonstrations only; not independent backend or authorization evidence.",
+    "No native desktop or installer screenshot; existing release gate remains open.",
+    "Not a claim of current production data or a new physical two-PC acceptance result."
+  ],
+  "files": [
+    {
+      "file": "accounts-permissions.jpg",
+      "bytes": 87547,
+      "sha256": "4b1499eeda87adb75958c35d3ea6ab548bc591a461ca49123dcb1989039fe075"
+    },
+    {
+      "file": "desktop-enrollment.jpg",
+      "bytes": 130986,
+      "sha256": "a81545b3c4421d96289d0e15f24193217a1433c00d1cc2e6d75c42dcc77020cf"
+    },
+    {
+      "file": "fhir-encounter.jpg",
+      "bytes": 159884,
+      "sha256": "c9821cd2918b5465b66a796b7d574249d3483a01079d11bf1d48ab03cd94709c"
+    },
+    {
+      "file": "fhir-mobile.jpg",
+      "bytes": 123965,
+      "sha256": "1df28677d6baf91985e36e4e93389dd502c09cdd8605436b9d9d92ad8886b3fd"
+    },
+    {
+      "file": "fhir-patient.jpg",
+      "bytes": 131652,
+      "sha256": "5e9b6a788a3388ec72824fd4ada072fe65a650d161834e3e695aef140fae09f4"
+    },
+    {
+      "file": "patient-timeline.jpg",
+      "bytes": 90877,
+      "sha256": "850ef38f5a6392a8f49a56b4540280226269d4a9c9141fcc3e09d1b4065e9541"
+    },
+    {
+      "file": "screening-history.jpg",
+      "bytes": 88218,
+      "sha256": "170688df0722dd4df3d07c62762d2690ad4ab2d55091b21753fd39c2c853272a"
+    }
+  ]
+}
