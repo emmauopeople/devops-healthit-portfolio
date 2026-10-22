@@ -34,6 +34,16 @@ const featuredProjects = [
     liveUrl: "https://servicecam.org",
   },
   {
+    title: "CHS Desktop, Web & FHIR",
+    route: "/projects/chs-offline-desktop-web-fhir",
+    status: "PC pilot / release gate open",
+    summary:
+      "Implemented offline desktop, central synchronization, scoped portal administration and private FHIR R4 publication, with dated verification evidence and explicit pending release gates.",
+    tags: ["Electron", "SQLite", "Docker Compose", "Keycloak", "FHIR R4"],
+    liveLabel: "Portal (sign-in required)",
+    liveUrl: "https://chsweb.servicecam.org",
+  },
+  {
     title: "Health Screening / FHIR Planning",
     route: "/projects/health-screening-application-planning",
     status: "Health IT / Planning",
