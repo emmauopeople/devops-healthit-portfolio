@@ -65,8 +65,8 @@ jobs:
 
       - name: Deploy container on Linode
         env:
-          GHCR_USERNAME: ${{ secrets.GHCR_USERNAME }}
-          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GHCR_USERNAME: ${{ github.actor }}
+          GHCR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           ssh -i ~/.ssh/linode_deploy_key "${{ secrets.LINODE_USER }}@${{ secrets.LINODE_HOST }}" "GHCR_USERNAME='${GHCR_USERNAME}' GHCR_TOKEN='${GHCR_TOKEN}' LINODE_APP_DIR='${LINODE_APP_DIR}' bash -s" <<'REMOTE'
           set -e
