@@ -1,4 +1,7 @@
+import { chsImplementation } from "./chsImplementation";
+
 export const projects = [
+  chsImplementation,
   {
     slug: "one-community-docker-compose",
     name: "One Community Platform - Docker Compose Production Deployment",
@@ -261,15 +264,16 @@ export const projects = [
     slug: "health-screening-application-planning",
     name: "Health Screening Application Planning",
     shortName: "Health Screening Planning",
-    status: "Planned / In Progress",
+    status: "Design baseline / implementation documented separately",
     category: "Health IT / Clinical Informatics Planning",
     timeframe: "Planned / In Progress",
     stack: ["Electron", "React", "TypeScript", "SQLite", "Node.js", "PostgreSQL", "FHIR R4", "LLM Integration", "Offline-first Sync", "Docker", "CI/CD"],
     focus: ["Community hypertension screening", "Offline-first workflow", "Referral follow-up", "FHIR interoperability", "Clinician AI assistance", "Clinical governance"],
-    summary: "In Progress - Designed as an offline-first community hypertension screening and referral platform for low-connectivity settings. Current work focuses on clinical workflow modeling, local data architecture, central synchronization, FHIR R4 interoperability, and a clinician-facing AI-assisted review experience.",
+    summary: "Original design baseline; the implemented desktop, CHS-web pilot and private FHIR layer are documented in the CHS Desktop, Web & FHIR case study. Designed as an offline-first community hypertension screening and referral platform for low-connectivity settings. Current work focuses on clinical workflow modeling, local data architecture, central synchronization, FHIR R4 interoperability, and a clinician-facing AI-assisted review experience.",
     problem: "In many underserved communities, individuals may not have an established primary care provider and may seek formal healthcare only when illness becomes severe. Hypertension is particularly dangerous because it can remain clinically silent for years while contributing to stroke, chronic kidney disease, visual impairment, heart disease, and other long-term complications. Community gatherings such as churches, faith communities, village meetings, and quarter meetings create an opportunity for repeated screening and follow-up, but paper-based records make it difficult to identify trends, retrieve previous readings, follow referrals, or confirm whether a person reached a healthcare provider.",
     solution: "Build a complete but focused offline-first community health screening platform centered on hypertension detection, referral, follow-up, and longitudinal patient history. Each participant is registered before screening. Subsequent visits are linked to the same patient record. The field application operates without internet, queues changes locally, and synchronizes with a central operational API when connectivity becomes available. The central platform manages organizations, hospital onboarding, approved access, synchronization, audit history, workflow reporting, FHIR publication, and a doctor portal for authorized clinical review and AI-assisted analysis.",
     objectives: [
+      "Implementation update: see the [CHS Desktop, Web & FHIR case study](https://mbimunyui.shop/projects/chs-offline-desktop-web-fhir). This page preserves the original design scope, including milestones that remain future work.",
       "Provide reliable offline patient registration and repeated community screening.",
       "Maintain longitudinal blood pressure, pulse, lifestyle, food-pattern, and OTC medication history.",
       "Create and track referrals through follow-up and closure.",

@@ -376,7 +376,7 @@ function ProjectDetailPage() {
   ];
 
   return (
-    <section className="h-[calc(100vh-4rem)] overflow-hidden bg-slate-50">
+    <section className="min-h-[calc(100vh-4rem)] bg-slate-50 lg:h-[calc(100vh-4rem)] lg:overflow-hidden">
       <div className="grid h-full w-full lg:grid-cols-[320px_minmax(0,1fr)]">
         <ProjectMenu activeSlug={project.slug} />
 

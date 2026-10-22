@@ -16,7 +16,15 @@ This portfolio is structured around evidence-based project documentation. Each p
 - Troubleshooting stories
 - Results and lessons learned
 
-## Current Featured Project
+## CHS implementation case study
+
+The site is currently hosted at https://mbimunyui.shop. The implementation case is available at `/projects/chs-offline-desktop-web-fhir` after this change is deployed. Content lives in `src/data/chsImplementation.js`, with a source-controlled SVG architecture diagram. The existing Health Screening planning case remains a design baseline.
+
+The case distinguishes the deployed PC pilot and completed automated checks from the blocked desktop 1.0.2 installer, physical two-PC acceptance and future OVHcloud/doctor/AI work. Evidence is pinned to the October 20, 2026 source snapshots; documentation was prepared October 22. It is not a new uptime or production-readiness assessment.
+
+Do not add credentials, real patient screenshots, private deployment files or database dumps. Add screenshots only from reviewed synthetic fixtures. Both deployment workflows run on pushes to `main`; review the pull request before merging because that can update the live portfolio.
+
+## Other Featured Project
 
 ### One Community Platform - Docker Compose Production Deployment
 

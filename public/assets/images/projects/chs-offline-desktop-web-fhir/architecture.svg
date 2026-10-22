@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="940" viewBox="0 0 1200 940" role="img" aria-labelledby="title description">
+  <title id="title">CHS offline desktop and private FHIR pilot architecture</title>
+  <desc id="description">Field desktops and portal browsers reach a dedicated Cloudflare Tunnel. On the pilot Windows host, the gateway, API, Keycloak, publication worker and private HAPI FHIR service run in Docker Compose. Operational, identity and FHIR PostgreSQL stores are separate. OVHcloud migration remains planned.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#36716f"/></marker>
+    <style>text{font-family:Arial,sans-serif;fill:#173b44}.heading{font-size:27px;font-weight:700}.label{font-size:18px;font-weight:700}.body{font-size:15px}.small{font-size:14px;fill:#47656b}.box{fill:white;stroke:#9dbcb9;stroke-width:1.5}.line{fill:none;stroke:#36716f;stroke-width:2;marker-end:url(#arrow)}</style>
+  </defs>
+  <rect width="1200" height="940" rx="20" fill="#f2f8f7"/>
+  <text x="40" y="47" class="heading">CHS · offline capture to controlled interoperability</text>
+  <text x="40" y="75" class="small">Implementation snapshot: October 20, 2026 · single-host PC pilot · cloud migration planned</text>
+  <rect x="40" y="110" width="330" height="118" rx="14" class="box"/>
+  <text x="60" y="142" class="label">Windows field desktops</text>
+  <text x="60" y="170" class="body">Electron + React + local SQLite</text>
+  <text x="60" y="194" class="body">Offline work / per-installation credential</text>
+  <text x="60" y="216" class="small">New installer acceptance gate still open</text>
+  <rect x="430" y="120" width="340" height="96" rx="14" fill="#dcefeb" stroke="#82aaa5"/>
+  <text x="450" y="152" class="label">Cloudflare HTTPS + tunnel</text>
+  <text x="450" y="180" class="body">Portal / API / OIDC hostnames</text>
+  <text x="450" y="202" class="small">Dedicated outbound connector on host</text>
+  <rect x="830" y="110" width="330" height="118" rx="14" class="box"/>
+  <text x="850" y="142" class="label">Authorized portal browsers</text>
+  <text x="850" y="170" class="body">Operations / provider administration</text>
+  <text x="850" y="194" class="body">FHIR-only account / audited POST reads</text>
+  <text x="850" y="216" class="small">No public demo credentials</text>
+  <path d="M370 163H425" class="line"/><path d="M830 163H775" class="line"/>
+  <rect x="30" y="285" width="1140" height="580" rx="20" fill="#e4f0ef" stroke="#7caaa4" stroke-dasharray="7 5"/>
+  <text x="53" y="315" class="label">Pilot Windows host · Docker Compose project: CHS</text>
+  <path d="M495 216V255H195V338" class="line"/><path d="M600 216V338" class="line"/><path d="M705 216V255H955V338" class="line"/>
+  <rect x="70" y="340" width="250" height="90" rx="13" class="box"/>
+  <text x="90" y="371" class="label">Web gateway</text>
+  <text x="90" y="397" class="body">React operations portal</text>
+  <text x="90" y="418" class="small">chsweb.servicecam.org</text>
+  <rect x="420" y="340" width="300" height="90" rx="13" class="box"/>
+  <text x="440" y="371" class="label">Fastify operational API</text>
+  <text x="440" y="397" class="body">Sync + live grants + scoped reads</text>
+  <text x="440" y="418" class="small">api-chs.servicecam.org</text>
+  <rect x="830" y="340" width="250" height="90" rx="13" class="box"/>
+  <text x="850" y="371" class="label">Keycloak</text>
+  <text x="850" y="397" class="body">OIDC / PKCE / OAuth clients</text>
+  <text x="850" y="418" class="small">auth-chs.servicecam.org</text>
+  <path d="M570 430V518" class="line"/><text x="584" y="479" class="small">authoritative writes</text>
+  <path d="M955 430V518" class="line"/>
+  <rect x="420" y="520" width="300" height="90" rx="13" class="box"/>
+  <text x="440" y="551" class="label">Operational PostgreSQL</text>
+  <text x="440" y="577" class="body">Canonical data / grants / audit</text>
+  <text x="440" y="599" class="small">Durable queue + resource registry</text>
+  <rect x="830" y="520" width="250" height="90" rx="13" class="box"/>
+  <text x="850" y="551" class="label">Identity PostgreSQL</text>
+  <text x="850" y="577" class="body">Keycloak persistence</text>
+  <text x="850" y="599" class="small">Separate private database / volume</text>
+  <rect x="70" y="520" width="250" height="90" rx="13" class="box"/>
+  <text x="90" y="551" class="label">Publication worker</text>
+  <text x="90" y="577" class="body">Leases / generations / retries</text>
+  <text x="90" y="599" class="small">FHIR outage does not undo sync</text>
+  <path d="M420 565H323" class="line"/><text x="330" y="550" class="small">claim work</text>
+  <path d="M195 610V698" class="line"/><text x="211" y="659" class="small">R4 transaction</text>
+  <rect x="70" y="700" width="250" height="90" rx="13" class="box"/>
+  <text x="90" y="731" class="label">Private HAPI FHIR R4</text>
+  <text x="90" y="757" class="body">Validated derived resources</text>
+  <text x="90" y="779" class="small">API reads stay behind authorization</text>
+  <path d="M320 745H417" class="line"/>
+  <rect x="420" y="700" width="300" height="90" rx="13" class="box"/>
+  <text x="440" y="731" class="label">FHIR PostgreSQL</text>
+  <text x="440" y="757" class="body">Derived resource persistence</text>
+  <text x="440" y="779" class="small">Separate private database / volume</text>
+  <rect x="830" y="700" width="250" height="90" rx="13" fill="#f5f8f8" stroke="#a7b5b8" stroke-dasharray="5 4"/>
+  <text x="850" y="731" class="label">Next hosting stage</text>
+  <text x="850" y="757" class="body">OVHcloud: planned</text>
+  <text x="850" y="779" class="small">Not a deployed cloud / HA claim</text>
+  <text x="60" y="837" class="small">No public database or raw FHIR endpoint · independent volumes/networks from One Community · shared host risk remains</text>
+  <text x="40" y="903" class="small">Clinical payloads and credentials are intentionally excluded. Diagram documents topology, not production readiness.</text>
+</svg>
